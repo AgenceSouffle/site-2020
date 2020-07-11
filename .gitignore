@@ -1,0 +1,7 @@
+.env
+.bundle
+.cache
+.DS_Store
+.sass-cache
+vendor/
+build/
