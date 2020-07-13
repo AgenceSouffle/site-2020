@@ -1,16 +1,124 @@
 ---
-title: Welcome to Middleman
+title: Agence Souffle, stratégie et production de contenus
 ---
 
-svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 340" class="middleman-logo" aria-labelledby="middleman-logo__title" role="img")
-  title(id="middleman-logo__title")= "Middleman"
-  path(class="middleman-logo__top-left-bar" fill-opacity=".45" d="M0 40L200 0v30L0 60z")
-  path(class="middleman-logo__top-right-bar" fill="#fff" d="M200 0l200 40v20L200 30z")
-  path(class="middleman-logo__left-m" fill-opacity=".45" d="M0 78v184l45 5V152l45 83 47-83v129l53 7V52l-57 8-43 83-43-70z")
-  path(class="middleman-logo__right-m" fill="#fff" d="M400 78v184l-45 5V152l-45 83-47-83v129l-53 7V52l57 8 43 83 43-70z")
-  path(class="middleman-logo__bottom-left-bar" fill-opacity=".45" d="M0 300l200 40v-30L0 280z")
-  path(class="middleman-logo__bottom-right-bar" fill="#fff" d="M200 340l200-40v-20l-200 30z")
+- body_class "homepage"
 
-h1= "Titre de la page"
 
-= link_to("Read Documentation", "https://middlemanapp.com/basics/templating_language/", target: "_blank")
+/ UTIL:
+/ = image_tag dato.homepage.training_picture.url({ w: 200, h: 100, fit: 'crop', crop: 'center' }), :class => 'c-manifest__picture'
+
+
+/ INTRODUCTION
+.l-main__head
+  .c-introduction
+    .c-introduction__background
+    .c-introduction__foreground
+      .l-container.l-container--small
+        .c-introduction__container
+          h1.c-introduction__title
+            strong= "Agence Souffle"
+            span= ", stratégie et production de contenus"
+          p.c-introduction__baseline= dato.homepage.baseline
+        svg.c-introduction__shape(viewBox="0 0 1440 135" width="1440" height="135" xmlns="http://www.w3.org/2000/svg")
+          path(d="M213.566406 135H1440v-28.837725c-27.22932-25.830291-58.34899-46.884871-93.35903-63.163743-35.01004-16.278871-75.53306-28.536517-121.56907-36.772938C1205.62525 2.075198 1177.08703 0 1139.45725 0c-37.62977 0-75.20942 2.075198-112.73895 6.225594-111.74774 11.088712-190.888804 18.343457-237.423194 21.764234-46.534391 3.420777-93.351601 5.425317-140.451632 6.01362-17.849015-.632528-37.0843-1.47889-57.705854-2.539084-20.621554-1.060195-41.361971-2.269063-62.22125-3.626605-33.22678-4.403033-70.130264-7.848384-110.710451-10.336055-40.580188-2.487671-81.853874-3.834782-123.821061-4.041334-48.529845.368941-100.110267 11.322484-154.741265 32.860629C85.0125946 67.859145 38.4647303 97.418812 0 135h213.566406z" fill="#FFF" fill-rule="evenodd")
+
+
+
+.l-main__body
+
+
+  / EXPERTISES
+  .l-main__section
+    .l-section
+
+      .l-section__head
+        .l-container.l-container--xsmall
+
+          .c-heading
+            p.c-heading__label= "— Expertises"
+            .c-heading__title= dato.homepage.expertises_title
+            .c-heading__description= dato.homepage.expertises_description
+
+      .l-section__body
+        .l-container.l-container--small
+          .l-grid.l-grid--halves
+            .l-grid__items
+              - dato.homepage.expertises_list.each_with_index do |expertise, index|
+                .l-grid__item(data-aos="fade-up" data-aos-delay="#{200*(index+1)}")
+                  .c-card
+                    .c-card__head
+                      = image_tag expertise.picture.url({ w: 210, h: 210 }), :class => "c-card__picture"
+                    .c-card__body
+                      .c-card__title.c-subtitle= expertise.title
+                      .c-card__description= expertise.description
+
+      .l-section__foot
+        .l-container.l-container--small
+          = link_to "Découvrir nos expertises", "/expertises/", :class => "c-button"
+
+
+  / FORMATION
+  .l-main__section
+    .l-section
+      .l-section__body
+        .l-container
+          .c-card.c-card--alt
+            .c-card__head
+              = image_tag dato.homepage.training_picture.url({ w: 210, h: 210 }), :class => "c-card__picture"
+            .c-card__body
+              .c-card__title.c-subtitle= dato.homepage.training_title
+              .c-card__description= dato.homepage.training_description
+              .c-card__more
+                = link_to "En savoir plus", "/expertises/", :class => "c-card__button c-button c-button--secondary"
+
+
+  / REALISATIONS
+  .l-main__section
+    .l-section.l-section--light
+
+      .l-section__head
+        .l-container.l-container--xsmall
+
+          .c-heading
+            p.c-heading__label= "— Réalisations"
+            .c-heading__title= dato.homepage.references_title
+            .c-heading__description= dato.homepage.references_description
+
+      .l-section__body
+        .l-container.l-container--large
+          .c-slider
+            .c-slider__items.js-slider
+              - dato.homepage.references_pictures.each do |picture|
+                .c-slider__item
+                  = image_tag picture.url({ w: 410, h: 410, fit: "crop", crop: "center" }), :class => "c-slider__picture"
+            .c-slider__buttons
+              button.c-slider__button.c-slider__button--prev.js-slider-prev
+                svg(viewBox="0 0 24 42" width="24" height="42" xmlns="http://www.w3.org/2000/svg")
+                  path(d="M21.844322 41.940038l-10.90892-10.91371-10.06209-10.06651 1.429-1.40878 8.53085-8.5356 11.07054-11.0754 1.96961 1.94237-19.079 19.08763 19.01962 19.02762-1.96961 1.94238z" fill="currentColor" fill-rule="evenodd")
+              button.c-slider__button.c-slider__button--next.js-slider-next
+                svg(viewBox="0 0 24 42" width="24" height="42" xmlns="http://www.w3.org/2000/svg")
+                  path(d="M2.9023-.05997l10.90892 10.91371 10.06209 10.06651-1.429 1.40878-8.53085 8.5356-11.07054 11.0754-1.96961-1.94237 19.079-19.08763L.93269 1.88241 2.9023-.05997z" fill="currentColor" fill-rule="evenodd")
+
+      .l-section__foot
+        .l-container.l-container--small
+          = link_to "Découvrir nos réalisations", "/realisations/", :class => "c-button"
+
+
+  / L'EQUIPE
+  .l-main__section
+    .l-section
+
+      .l-section__body
+        .l-container.l-container--large
+          .c-media.c-media--clean
+            .c-media__container
+              .c-media__aside
+                = image_tag dato.homepage.team_picture.url({ w: 520, h: 520, fit: "crop", crop: "center" }), :class => "c-media__picture"
+              .c-media__main
+                .c-heading.c-heading--left
+                  p.c-heading__label= "— L'équipe"
+                  .c-heading__title= dato.homepage.team_title
+                  .c-heading__description= dato.homepage.team_description
+                .c-media__more
+                  = link_to "Découvrir l'équipe", "/equipe/", :class => "c-button c-button--secondary"

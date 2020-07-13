@@ -1,0 +1,69 @@
+---
+title: Réalisation | Agence Souffle, stratégie et production de contenus
+---
+
+- body_class "page-realisation"
+
+
+- if defined?(reference)
+
+  / INTRODUCTION
+  .l-main__head
+
+    .c-banner
+      .l-container
+        .c-banner__container
+          h1.c-banner__title= reference.client
+
+    .c-breadcrumb
+      .l-container.l-container--large
+        .c-breadcrumb__items
+          .c-breadcrumb__item
+            = link_to "Accueil", "/", :class => "c-breadcrumb__link"
+          .c-breadcrumb__item
+            = link_to "Réalisations", "/realisations/", :class => "c-breadcrumb__link"
+          .c-breadcrumb__item
+            .c-breadcrumb__label= reference.client
+
+
+  .l-main__body
+
+
+    / REALISTATIONS
+    .l-main__section
+      .l-section
+
+        .l-section__body
+          .l-container.l-container--large
+            
+            .v-reference
+              .v-reference__container
+
+                .v-reference__main
+                  - reference.pictures.each do |picture|
+                    = image_tag picture.url({ w: 690 }), :class => "v-reference__picture"
+
+                .v-reference__aside
+
+                  - if reference.description
+                    .v-reference__content
+                      .s-richtext= reference.description
+
+                  .v-reference__infos
+
+                    .v-reference__info
+                      span.v-reference__label= "Client : "
+                      span.v-reference__value= reference.client
+
+                    - if reference.mission
+                      .v-reference__info
+                        span.v-reference__label= "Mission : "
+                        span.v-reference__value= reference.mission
+
+                    - if reference.link
+                      .v-reference__info
+                        span.v-reference__label= "Lien : "
+                        span.v-reference__value= reference.link
+
+                  - if reference.logo
+                    = image_tag reference.logo.url({ w: 280, h: 200 }), :class => "v-reference__logo"

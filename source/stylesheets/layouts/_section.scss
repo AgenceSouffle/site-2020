@@ -1,0 +1,52 @@
+/**
+ * LAYOUTS
+ * Name : Section
+ ************************************************************ */
+
+
+.l-section {
+  position: relative;
+}
+
+
+/**
+ * Types
+ ****************************** */
+
+.l-section--light {
+  @include rem(padding-top, $gutter-size*4);
+  @include rem(padding-bottom, $gutter-size*4);
+  background-color: $color-light-grey;
+}
+
+
+/**
+ * Head
+ ****************************** */
+
+.l-section__head {}
+
+
+  /**
+   * Body
+   ****************************** */
+
+  .l-section__body {
+
+    &:not(:first-child) {
+      @include rem(margin-top, $gutter-size*3);
+    }
+  }
+
+
+  /**
+   * Foot
+   ****************************** */
+
+  .l-section__foot {
+    text-align: center;
+
+    &:not(:first-child) {
+      @include rem(margin-top, $gutter-size*3);
+    }
+  }

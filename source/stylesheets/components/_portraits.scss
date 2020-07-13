@@ -1,0 +1,121 @@
+/**
+ * COMPONENTS
+ * Name : Portraits
+ ************************************************************ */
+
+
+.c-portraits {
+  position: relative;
+}
+
+
+  /**
+   * Items
+   ****************************** */
+
+  .c-portraits__items {}
+
+
+    /**
+     * Item
+     ****************************** */
+
+    .c-portraits__item {
+      @include rem(padding-top, $gutter-size*4);
+      @include rem(padding-bottom, $gutter-size*4);
+
+      &:nth-child(odd) {
+        background-color: $color-light-grey;
+      }
+    }
+
+
+      /**
+       * Container
+       ****************************** */
+
+      .c-portraits__container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        @include rem(margin-right, -$gutter-size*2);
+        @include rem(margin-left, -$gutter-size*2);
+      }
+
+
+        /**
+         * Aside
+         ****************************** */
+
+        .c-portraits__aside {
+          flex: 0 0 auto;
+          @include rem(width, 240px);
+          @include rem(padding-right, $gutter-size*2);
+          @include rem(padding-left, $gutter-size*2);
+
+          .c-portraits__item:nth-child(odd) & {
+            order: 2;
+          }
+
+          .c-portraits__item:nth-child(even) & {
+            order: 1;
+          }
+        }
+
+          .c-portraits__picture {
+            display: block;
+          }
+
+          .c-portraits__links {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            @include rem(margin-right, -$gutter-size/2);
+            @include rem(margin-left, -$gutter-size/2);
+            line-height: 0;
+
+            &:not(:first-child) {
+              @include rem(margin-top, $gutter-size/2);
+            }
+          }
+
+            .c-portraits__link {
+              @include rem(padding, $gutter-size/4 $gutter-size/2);
+              transition: color 0.2s ease;
+
+              &:hover {
+                color: $color-primary;
+              }
+            }
+
+
+        /**
+         * Main
+         ****************************** */
+
+        .c-portraits__main {
+          flex: 1 1 auto;
+          @include rem(padding-right, $gutter-size*2);
+          @include rem(padding-left, $gutter-size*2);
+
+          .c-portraits__item:nth-child(odd) & {
+            order: 1;
+          }
+
+          .c-portraits__item:nth-child(even) & {
+            order: 2;
+          }
+        }
+
+          .c-portraits__title {}
+
+          .c-portraits__subtitle {}
+
+          .c-portraits__description {
+
+            &:not(:first-child) {
+              @include rem(margin-top, $gutter-size);
+            }
+          }

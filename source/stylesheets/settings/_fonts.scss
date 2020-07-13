@@ -1,0 +1,54 @@
+/**********************************************************************************
+ * SETTINGS
+ * Name : Fonts
+ **********************************************************************************/
+
+
+/**
+ * Imports
+ **********************************************************************************/
+
+// Manrope
+// https://fonts.google.com/specimen/Manrope?query=manrope&preview.text=&preview.text_type=custom&sidebar.open&selection.family=Manrope:wght@200;300;400;500;600;700;800
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+// Neuzeit Grotesk
+// @import url('//db.onlinewebfonts.com/c/e033e2102fee59650a53fb6ed4033c16?family=Neuzeit+Grotesk');
+@font-face {
+  font-family: "neuzeitgrow03-boldregular";
+  src: url('../fonts/neuzeitgro_w03_bold-webfont.woff2') format('woff2'),
+       url('../fonts/neuzeitgro_w03_bold-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/**
+ * Families
+ **********************************************************************************/
+
+$font-primary: "Manrope", Arial, sans-serif;
+$font-secondary: "neuzeitgrow03-boldregular", "Manrope", Arial, serif;
+$font-default: $font-primary;
+
+
+/**
+ * Sizes
+ **********************************************************************************/
+
+$font-size: 15px;
+$line-height: 30px;
+
+
+/**
+ * Weights
+ **********************************************************************************/
+
+$font-extralight: 200;
+$font-light: 300;
+$font-regular: 400;
+$font-medium: 500;
+$font-semibold: 600;
+$font-bold: 700;
+$font-extrabold: 800;
+$font-black: 900;

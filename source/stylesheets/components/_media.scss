@@ -1,0 +1,109 @@
+/**
+ * COMPONENTS
+ * Name : Media
+ ************************************************************ */
+
+
+.c-media {
+  position: relative;
+}
+
+
+/**
+ * Types
+ ****************************** */
+
+.c-media--small {}
+.c-media--reverse {}
+.c-media--clean {}
+
+
+  /**
+   * Container
+   ****************************** */
+
+  .c-media__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background-color: $color-light-grey;
+
+    .c-media--clean & {
+      align-items: center;
+      background-color: initial;
+    }
+  }
+
+
+    /**
+     * Aside
+     ****************************** */
+
+    .c-media__aside {
+      order: 1;
+      position: relative;
+      flex: 0 0 auto;
+      width: 50%;
+
+      .c-media--reverse & {
+        order: 2;
+      }
+
+      .c-media--clean & {
+        width: 40%;
+        padding-top: 40%;
+        @include rem(border-radius, 500px);
+        overflow: hidden;
+      }
+    }
+
+      .c-media__picture {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        object-fit: cover;
+      }
+
+
+    /**
+     * Main
+     ****************************** */
+
+    .c-media__main {
+      order: 2;
+      flex: 0 0 auto;
+      width: 50%;
+      @include rem(padding, $gutter-size*4);
+
+      .c-media--reverse & {
+        order: 1;
+      }
+
+      .c-media--small & {
+        @include rem(padding, $gutter-size*2.5 $gutter-size*3);
+      }
+
+      .c-media--clean & {
+        width: 60%;
+      }
+    }
+
+      .c-media__title {}
+
+      .c-media__description {
+
+        &:not(:first-child) {
+          @include rem(margin-top, $gutter-size*2);
+        }
+      }
+
+      .c-media__more {
+
+        &:not(:first-child) {
+          @include rem(margin-top, $gutter-size*2);
+        }
+      }

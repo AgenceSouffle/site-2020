@@ -1,0 +1,70 @@
+/**
+ * COMPONENTS
+ * Name : Navigation
+ ************************************************************ */
+
+
+.c-navigation {
+  position: relative;
+}
+
+
+  /**
+   * Items
+   ****************************** */
+
+  .c-navigation__items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+
+    /**
+     * Item
+     ****************************** */
+
+    .c-navigation__item {
+      position: relative;
+      font-weight: $font-medium;
+      flex: 0 0 auto;
+
+      &:not(:first-child) {
+        @include rem(margin-left, $gutter-size*2.5);
+      }
+
+      body.page-expertises &[data-page="expertises"],
+      body.page-equipe &[data-page="equipe"],
+      body.page-realisations &[data-page="realisations"],
+      body.page-contact &[data-page="contact"] {
+
+        &:before {
+          content: '';
+          position: absolute;
+          @include rem(width, 60px);
+          @include rem(height, 2px);
+          @include rem(bottom, -5px);
+          left: 50%;
+          background-color: $color-primary;
+          transform: translateX(-50%);
+        }
+
+        .c-navigation__link:hover {
+          color: $color-foreground;
+        }
+      }
+    }
+
+
+      /**
+       * Link
+       ****************************** */
+
+      .c-navigation__link {
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: $color-primary;
+        }
+      }

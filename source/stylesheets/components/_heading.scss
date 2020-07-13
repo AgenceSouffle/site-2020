@@ -1,0 +1,60 @@
+/**
+ * COMPONENTS
+ * Name : Heading
+ ************************************************************ */
+
+
+.c-heading {
+  position: relative;
+  text-align: center;
+}
+
+
+/**
+ * Types
+ ****************************** */
+
+.c-heading--left {
+  text-align: left;
+}
+
+
+  /**
+   * Label
+   ****************************** */
+
+  .c-heading__label {
+    font-family: $font-secondary;
+    @include font-size(14px, 20px);
+    @include rem(letter-spacing, 2px);
+    text-transform: uppercase;
+  }
+
+
+  /**
+   * Title
+   ****************************** */
+
+  .c-heading__title {
+    @include rem(max-width, 480px);
+    margin-right: auto;
+    margin-left: auto;
+    @include font-size(34px, 46px);
+
+    .c-heading--left & {
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+
+
+  /**
+   * Description
+   ****************************** */
+
+  .c-heading__description {
+
+    &:not(:first-child) {
+      @include rem(margin-top, $gutter-size);
+    }
+  }

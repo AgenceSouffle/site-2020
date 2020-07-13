@@ -1,0 +1,73 @@
+/**
+ * COMPONENTS
+ * Name : Introduction
+ ************************************************************ */
+
+
+.c-introduction {
+  position: relative;
+  overflow: hidden;
+}
+
+
+  /**
+   * Background
+   ****************************** */
+
+  .c-introduction__background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $color-foreground;
+    z-index: 1;
+  }
+
+
+  /**
+   * Foreground
+   ****************************** */
+
+  .c-introduction__foreground {
+    position: relative;
+    z-index: 2;
+  }
+
+    .c-introduction__container {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+      @include rem(height, 830px);
+      text-align: center;
+      color: $color-background;
+    }
+
+      .c-introduction__title {
+        @include font-size(14px, 19px);
+        text-transform: uppercase;
+
+        strong {
+          color: $color-primary;
+        }
+      }
+
+      .c-introduction__baseline {
+        @include font-size(46px, 63px);
+        font-weight: $font-bold;
+
+        &:not(:first-child) {
+          @include rem(margin-top, $gutter-size/2);
+        }
+      }
+
+    .c-introduction__shape {
+      position: absolute;
+      @include rem(width, 1920px);
+      @include rem(height, 180px);
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }

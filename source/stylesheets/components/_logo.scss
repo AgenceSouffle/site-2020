@@ -1,0 +1,67 @@
+/**
+ * COMPONENTS
+ * Name : Logo
+ ************************************************************ */
+
+
+/**
+ * Keyframes
+ ****************************** */
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.85);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/**
+ * Styles
+ ****************************** */
+
+.c-logo {}
+
+
+  /**
+   * Shape
+   ****************************** */
+
+  .c-logo__shape {
+    transform-origin: center;
+
+    .c-logo:hover & {
+      
+      &:nth-child(1) {
+        animation: bounce 0.2s ease-out;
+      }
+      
+      &:nth-child(2) {
+        animation: bounce 0.35s ease-out 0.05s;
+      }
+      
+      &:nth-child(3) {
+        animation: bounce 0.5s ease-out 0.1s;
+      }
+      
+      &:nth-child(4) {
+        animation: bounce 0.65s ease-out 0.15s;
+      }
+      
+      &:nth-child(5) {
+        animation: bounce 0.8s ease-out 0.2s;
+      }
+    }
+  }
+
+
+  /**
+   * Text
+   ****************************** */
+
+  .c-logo__text {}

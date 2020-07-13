@@ -1,1 +1,54 @@
-p= "Footer"
+footer.l-footer
+  .l-footer__wrapper
+
+    svg.l-footer__shape(viewBox="0 0 1440 135" width="1440" height="135" xmlns="http://www.w3.org/2000/svg")
+      path(d="M213.566406 135H1440v-28.837725c-27.22932-25.830291-58.34899-46.884871-93.35903-63.163743-35.01004-16.278871-75.53306-28.536517-121.56907-36.772938C1205.62525 2.075198 1177.08703 0 1139.45725 0c-37.62977 0-75.20942 2.075198-112.73895 6.225594-111.74774 11.088712-190.888804 18.343457-237.423194 21.764234-46.534391 3.420777-93.351601 5.425317-140.451632 6.01362-17.849015-.632528-37.0843-1.47889-57.705854-2.539084-20.621554-1.060195-41.361971-2.269063-62.22125-3.626605-33.22678-4.403033-70.130264-7.848384-110.710451-10.336055-40.580188-2.487671-81.853874-3.834782-123.821061-4.041334-48.529845.368941-100.110267 11.322484-154.741265 32.860629C85.0125946 67.859145 38.4647303 97.418812 0 135h213.566406z" fill="#eba56d" fill-rule="evenodd")
+
+    .l-footer__head
+      .l-container
+        .l-footer__container
+          .l-footer__main(id="footer-main" data-aos="fade-up")
+            .c-heading.c-heading--left
+              .c-heading__title
+                strong= "Envie de nous rencontrer"
+                span= " et de parler de votre projet ?"
+              .c-heading__description= "Proinde concepta rabie saeviore, quam desperatio incendebat et fames, amplificatis viribus ardore incohibili in excidium urbium matris Seleuciae efferebantur, quam comes tuebatur Castricius tresque legiones bellicis sudoribus induratae."
+          .l-footer__aside
+            .l-footer__item(data-aos="fade-up" data-aos-delay="200" data-aos-anchor="#footer-main")
+              .l-footer__label= "De vive voix"
+              = link_to "06 34 01 17 17", "tel:+33634011717", :class => "l-footer__value"
+            .l-footer__item(data-aos="fade-up" data-aos-delay="400" data-aos-anchor="#footer-main")
+              .l-footer__label= "Par e-mail"
+              = link_to "contact@agence-souffle.fr", "mailto:contact@agence-souffle.fr", :class => "l-footer__value"
+
+
+    .l-footer__body
+      .l-container
+        .l-footer__navigation
+          .c-navigation
+            .c-navigation__items
+              .c-navigation__item(data-page="expertises")
+                = link_to "Expertises", "/expertises/", :class => "c-navigation__link"
+              .c-navigation__item(data-page="equipe")
+                = link_to "L'équipe", "/equipe/", :class => "c-navigation__link"
+              .c-navigation__item(data-page="realisations")
+                = link_to "Réalisations", "/realisations/", :class => "c-navigation__link"
+              .c-navigation__item(data-page="contact")
+                = link_to "Contact", "#", :class => "c-navigation__link"
+
+
+    .l-footer__foot
+      .l-container
+        .l-footer__legals
+          .l-footer__legal
+            = "© SOUFFLE 2020"
+          .l-footer__legal
+            = link_to "Groupement d'entrepreneurs", "#", :class => "l-footer__link"
+          .l-footer__legal
+            = link_to "Mentions légales", "#", :class => "l-footer__link"
+          .l-footer__legal
+            = link_to "CGV", "#", :class => "l-footer__link"
+          .l-footer__legal
+            = link_to "Plan du site", "#", :class => "l-footer__link"
+          .l-footer__legal
+            = link_to "Contact", "#", :class => "l-footer__link"

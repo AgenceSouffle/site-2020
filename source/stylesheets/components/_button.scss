@@ -1,0 +1,43 @@
+/**
+ * COMPONENTS
+ * Name : Button
+ ************************************************************ */
+
+.c-button {
+  @include appearance;
+  position: relative;
+  @include rem(padding, 13px 30px);
+  font-family: $font-secondary;
+  @include font-size(16px, 20px);
+  @include rem(letter-spacing, 1px);
+  text-align: center;
+  text-transform: uppercase;
+  color: $color-background;
+  background-color: $color-primary;
+  @include rem(border-radius, 4px);
+  transition: color 0.2s ease, background-color 0.2s ease;
+
+  &:hover {
+    background-color: #E18B48;
+    background-color: darken($color-primary, 10);
+  }
+}
+
+
+/**
+ * Secondary
+ ****************************** */
+
+.c-button--secondary {
+  font-family: $font-primary;
+  @include font-size(15px, 20px);
+  font-weight: $font-medium;
+  letter-spacing: 0;
+  text-transform: none;
+  color: $color-foreground;
+  background-color: #d0d0d0;
+
+  &:hover {
+    background-color: #eee;
+  }
+}

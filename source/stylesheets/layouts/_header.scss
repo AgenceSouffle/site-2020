@@ -1,0 +1,96 @@
+/**
+ * LAYOUTS
+ * Name : Header
+ ************************************************************ */
+
+
+.l-header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  color: $color-foreground;
+  background-color: $color-background;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  z-index: $z-header;
+
+  body.homepage &,
+  body.has-picture-banner & {
+    color: $color-background;
+    background-color: rgba($color-background, 0);
+  }
+
+  body.is-scrolled & {
+    position: fixed;
+    color: $color-foreground;
+    background-color: $color-background;
+    @include rem(box-shadow, 0 0 40px rgba($color-foreground, 0.1));
+  }
+}
+
+
+  /**
+   * Container
+   ****************************** */
+
+  .l-header__container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    @include rem(height, 115px);
+    @include rem(margin-right, -$gutter-size/2);
+    @include rem(margin-left, -$gutter-size/2);
+    @include rem(padding-top, $gutter-size*0.75);
+    @include rem(padding-bottom, $gutter-size*0.75);
+    transition: height 0.2s ease;
+
+    body.is-scrolled & {
+      @include rem(height, 75px);
+    }
+  }
+
+
+    /**
+     * Section
+     ****************************** */
+
+    .l-header__section {
+      flex: 0 0 auto;
+      @include rem(padding-right, $gutter-size/2);
+      @include rem(padding-left, $gutter-size/2);
+    }
+
+    .l-header__section--home,
+    .l-header__section--networks {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .l-header__section--home {
+      left: 0;
+    }
+
+    .l-header__section--networks {
+      right: 0;
+    }
+
+    .l-header__section--navigation {}
+
+      .l-header__home {
+        display: block;
+        font-size: 0;
+        line-height: 0;
+      }
+
+        .l-header__logo {
+          height: auto;
+          transition: width 0.2s ease;
+
+          body.is-scrolled & {
+            @include rem(width, 80px);
+          }
+        }

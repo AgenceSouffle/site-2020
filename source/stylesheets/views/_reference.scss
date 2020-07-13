@@ -1,0 +1,90 @@
+/**
+ * VIEWS
+ * Name : Reference
+ ************************************************************ */
+
+
+.v-reference {
+  position: relative;
+}
+
+
+  /**
+   * Container
+   ****************************** */
+
+  .v-reference__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    @include rem(margin-right, -$gutter-size*2.5);
+    @include rem(margin-left, -$gutter-size*2.5);
+  }
+
+
+    /**
+     * Main
+     ****************************** */
+
+    .v-reference__main {
+      flex: 1 1 auto;
+      @include rem(padding-right, $gutter-size*2.5);
+      @include rem(padding-left, $gutter-size*2.5);
+    }
+
+      .v-reference__picture {
+        display: block;
+
+        &:not(:first-child) {
+          @include rem(margin-top, $gutter-size*2);
+        }
+      }
+
+
+    /**
+     * Aside
+     ****************************** */
+
+    .v-reference__aside {
+      flex: 0 0 auto;
+      @include rem(width, 520px);
+      @include rem(padding-right, $gutter-size*2.5);
+      @include rem(padding-left, $gutter-size*2.5);
+    }
+
+      .v-reference__content {}
+
+      .v-reference__infos {
+
+        &:not(:first-child) {
+          @include rem(margin-top, $gutter-size*1.5);
+        }
+      }
+
+        .v-reference__info {
+
+          &:not(:first-child) {
+            @include rem(margin-top, $gutter-size);
+          }
+        }
+
+          .v-reference__label {
+            font-family: $font-secondary;
+            @include font-size(18px, 26px);
+            @include rem(letter-spacing, 1px);
+            text-transform: uppercase;
+
+            &:before {
+              content: '› ';
+            }
+          }
+
+          .v-reference__value {}
+
+      .v-reference__logo {
+
+        &:not(:first-child) {
+          @include rem(margin-top, $gutter-size*2);
+        }
+      }

@@ -1,0 +1,35 @@
+/**
+ * LAYOUTS
+ * Name : Container
+ ************************************************************ */
+
+
+.l-container {
+  @include rem(max-width, $container + $gutter-size * 2);
+  margin-right: auto;
+  margin-left: auto;
+  @include rem(padding-right, $gutter-size);
+  @include rem(padding-left, $gutter-size);
+
+  .l-container {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+
+/**
+ * Types
+ ****************************** */
+
+.l-container--xsmall {
+  @include rem(max-width, $container-xsmall + $gutter-size * 2);
+}
+
+.l-container--small {
+  @include rem(max-width, $container-small + $gutter-size * 2);
+}
+
+.l-container--large {
+  @include rem(max-width, $container-large + $gutter-size * 2);
+}

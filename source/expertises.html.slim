@@ -1,0 +1,122 @@
+---
+title: Expertises | Agence Souffle, stratégie et production de contenus
+---
+
+- body_class "page-expertises"
+
+
+/ INTRODUCTION
+.l-main__head
+
+  .c-banner
+    - if dato.expertises_page.background_picture
+      - body_class "has-picture-banner"
+      .c-banner__background
+        img.c-banner__picture(src=dato.expertises_page.background_picture.url)
+    .c-banner__foreground
+      .l-container
+        .c-banner__container
+          h1.c-banner__title= "Expertises"
+
+  .c-breadcrumb
+    .l-container.l-container--large
+      .c-breadcrumb__items
+        .c-breadcrumb__item
+          = link_to "Accueil", "/", :class => "c-breadcrumb__link"
+        .c-breadcrumb__item
+          .c-breadcrumb__label= "Expertises"
+
+
+.l-main__body
+
+
+  / STRATEGIE
+  .l-main__section
+    .l-section
+
+      .l-section__head
+        .l-container.l-container--large
+          .c-media
+            .c-media__container
+              .c-media__aside
+                img.c-media__picture(src=dato.expertises_page.strategy_picture.url)
+              .c-media__main
+                .s-richtext
+                  h2= dato.expertises_page.strategy_title
+                  = dato.expertises_page.strategy_description
+
+      .l-section__body
+        .l-container
+          .c-steps
+            .c-steps__items
+              - dato.expertises_page.strategy_steps.each_with_index do |step, index|
+                .c-steps__item
+                  .c-steps__aside
+                    .c-steps__number
+                      - if index < 9
+                        = "0"
+                      = index + 1
+                      = "."
+                    h3.c-steps__title.c-subtitle= step.title
+                  .c-steps__main
+                    .c-steps__description
+                      .s-richtext= step.description
+
+
+  / PRODUCTION
+  .l-main__section
+    .l-section
+
+      .l-section__head
+        .l-container
+          .s-richtext.u-text-center
+            h2= dato.expertises_page.production_title
+            = dato.expertises_page.production_description
+
+      .l-section__body
+        .l-container.l-container--large
+          - dato.expertises_page.production_services.each_with_index do |service, index|
+            - media_class = ""
+            - if index.even?
+              - media_class = "c-media--reverse"
+            .c-media.c-media--small(class=media_class)
+              .c-media__container
+                .c-media__aside
+                  img.c-media__picture(src=service.picture.url)
+                .c-media__main
+                  .s-richtext
+                    h3= service.title
+                    = service.description
+
+
+  / REALISATIONS
+  .l-main__section
+    .l-section
+
+      .l-section__body
+        .l-container.l-container--large
+          .l-grid.l-grid--halves
+            .l-grid__items
+              - dato.expertises_page.references.each do |picture|
+                .l-grid__item
+                  img.l-grid__picture(src=picture.url)
+
+      .l-section__foot
+        .l-container
+          = link_to "Voir toutes nos réalisations", "/realisations/", :class => "c-button c-button--secondary"
+
+
+  / FORMATION
+  .l-main__section
+    .l-section
+
+      .l-section__body
+        .l-container.l-container--large
+          .c-media.c-media--small
+            .c-media__container
+              .c-media__aside
+                img.c-media__picture(src=dato.expertises_page.training_picture.url)
+              .c-media__main
+                .s-richtext
+                  h3= dato.expertises_page.training_title
+                  = dato.expertises_page.training_description

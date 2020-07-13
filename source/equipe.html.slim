@@ -1,0 +1,63 @@
+---
+title: L'équipe | Agence Souffle, stratégie et production de contenus
+---
+
+- body_class "page-equipe"
+
+
+/ INTRODUCTION
+.l-main__head
+
+  .c-banner
+    - if dato.team_page.background_picture
+      - body_class "has-picture-banner"
+      .c-banner__background
+        img.c-banner__picture(src=dato.team_page.background_picture.url)
+    .c-banner__foreground
+      .l-container
+        .c-banner__container
+          h1.c-banner__title= "L'équipe"
+
+  .c-breadcrumb
+    .l-container.l-container--large
+      .c-breadcrumb__items
+        .c-breadcrumb__item
+          = link_to "Accueil", "/", :class => "c-breadcrumb__link"
+        .c-breadcrumb__item
+          .c-breadcrumb__label= "L'équipe"
+
+
+.l-main__body
+
+  .l-main__section
+    .l-section
+
+      .l-section__head
+        .l-container.l-container--small
+          div.u-text-center= dato.team_page.description
+
+      .l-section__body
+        .c-portraits
+          .c-portraits__items
+            - dato.team_page.members.each do |member|
+              .c-portraits__item
+                .l-container
+                  .c-portraits__container
+                    .c-portraits__aside
+                      img.c-portraits__picture(src=member.picture.url)
+                      .c-portraits__links
+                        - if member.instagram
+                          = link_to member.instagram, :class => "c-portraits__link", :title => "Instagram", :target => "_blank" do
+                            svg.c-portraits__icon(viewBox="0 0 14 14" width="14" height="14" xmlns="http://www.w3.org/2000/svg")
+                              g(fill="currentColor" fill-rule="nonzero")
+                                path(d="M10.2103271 0H3.78967285C1.70001221 0 0 1.70001221 0 3.78967285V10.210434C0 12.2999878 1.70001221 14 3.78967285 14H10.210434C12.2999878 14 14 12.2999878 14 10.210434V3.78967285C14 1.70001221 12.2999878 0 10.2103271 0zM7 10.8280182c-2.11080931 0-3.8280182-1.71720889-3.8280182-3.8280182 0-2.11080931 1.71720889-3.8280182 3.8280182-3.8280182 2.11080931 0 3.8280182 1.71720889 3.8280182 3.8280182 0 2.11080931-1.71720889 3.8280182-3.8280182 3.8280182zm3.9195557-6.7532654c-.6237793 0-1.13113408-.50735472-1.13113408-1.13113402 0-.6237793.50735478-1.13124085 1.13113408-1.13124085s1.1312408.50746155 1.1312408 1.13124085c0 .6237793-.5074615 1.13113402-1.1312408 1.13113402z")
+                                path(d="M7 3.99272155C5.34185791 3.99272155 3.99272155 5.34175111 3.99272155 7c0 1.65814209 1.34913636 3.0072784 3.00727845 3.0072784 1.65824889 0 3.0072784-1.34913631 3.0072784-3.0072784 0-1.65824889-1.34902951-3.00727845-3.0072784-3.00727845zM10.9195557 2.63322448c-.1711121 0-.3103943.13928223-.3103943.3103943 0 .17111205.1392822.31039427.3103943.31039427.1712188 0 .3105011-.13917542.3105011-.31039427 0-.17121888-.1392823-.3103943-.3105011-.3103943z")
+                        - if member.linkedin
+                          = link_to member.linkedin, :class => "c-portraits__link", :title => "LinkedIn", :target => "_blank" do
+                            svg.c-portraits__icon(viewBox="0 0 14 14" width="14" height="14" xmlns="http://www.w3.org/2000/svg")
+                              path(d="M13.9965 14v-.0005833H14V8.86491667c0-2.51183334-.54075-4.44675-3.47725-4.44675-1.41166667 0-2.359.77466666-2.74575 1.50908333h-.04083333V4.65266667h-2.78425v9.34675003h2.89916666V9.37125c0-1.21858333.231-2.39691667 1.74008334-2.39691667 1.48691663 0 1.50908333 1.39066667 1.50908333 2.47508334V14h2.89625zM.231 4.65325h2.90266667V14H.231zM1.68116667 0C.75308333 0 0 .75308333 0 1.68116667 0 2.60925.75308333 3.37808333 1.68116667 3.37808333c.92808333 0 1.68116666-.76883333 1.68116666-1.69691666C3.36175.75308333 2.60866667 0 1.68116667 0z" fill="currentColor" fill-rule="nonzero")
+                    .c-portraits__main
+                      h2.c-portraits__title.c-title= member.name
+                      h3.c-portraits__subtitle.c-subtitle= member.job
+                      .c-portraits__description
+                        .s-richtext= member.description

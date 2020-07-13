@@ -1,0 +1,13 @@
+/**
+ * COMPONENTS
+ * Name : Title
+ ************************************************************ */
+
+
+.c-title {
+  font-family: $font-secondary;
+  @include font-size(32px, 41px);
+  font-weight: $font-bold;
+  @include rem(letter-spacing, 2.5px);
+  text-transform: uppercase;
+}

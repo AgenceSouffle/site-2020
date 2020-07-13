@@ -1,0 +1,71 @@
+/**
+ * COMPONENTS
+ * Name : Slider
+ ************************************************************ */
+
+
+.c-slider {
+  position: relative;
+
+  * {
+    outline: none;
+  }
+}
+
+
+  /**
+   * Items
+   ****************************** */
+
+  .c-slider__items {
+    @include rem(margin-right, -$gutter-size/2);
+    @include rem(margin-left, -$gutter-size/2);
+  }
+
+
+    /**
+     * Item
+     ****************************** */
+
+    .c-slider__item {
+      @include rem(padding-right, $gutter-size/2);
+      @include rem(padding-left, $gutter-size/2);
+    }
+
+      .c-slider__picture {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+
+  /**
+   * Buttons
+   ****************************** */
+
+  .c-slider__buttons {}
+
+    .c-slider__button {
+      @include appearance;
+      position: absolute;
+      @include rem(width, 24px);
+      @include rem(height, 42px);
+      top: 50%;
+      font-size: 0;
+      line-height: 0;
+      text-align: center;
+      color: $color-primary;
+      overflow: hidden;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .c-slider__button--prev {
+      @include rem(left, -$gutter-size);
+      transform: translate3d(-100%, -50%, 0);
+    }
+
+    .c-slider__button--next {
+      @include rem(right, -$gutter-size);
+      transform: translate3d(100%, -50%, 0);
+    }

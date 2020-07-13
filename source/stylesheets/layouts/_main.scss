@@ -1,0 +1,37 @@
+/**
+ * LAYOUTS
+ * Name : Main
+ ************************************************************ */
+
+
+.l-main {
+  position: relative;
+}
+
+
+  /**
+   * Head
+   ****************************** */
+
+  .l-main__head {}
+
+
+  /**
+   * Body
+   ****************************** */
+
+  .l-main__body {}
+
+    .l-main__section {
+
+      &:not(:first-child) {
+        @include rem(margin-top, $gutter-size*4.5);
+      }
+    }
+
+
+  /**
+   * Foot
+   ****************************** */
+
+  .l-main__foot {}

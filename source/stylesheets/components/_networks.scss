@@ -1,0 +1,77 @@
+/**
+ * COMPONENTS
+ * Name : Networks
+ ************************************************************ */
+
+
+.c-networks {
+  position: relative;
+}
+
+
+  /**
+   * Items
+   ****************************** */
+
+  .c-networks__items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+
+    /**
+     * Item
+     ****************************** */
+
+    .c-networks__item {
+      flex: 0 0 auto;
+
+      &:not(:first-child) {
+        @include rem(margin-left, $gutter-size/4);
+      }
+    }
+
+
+      /**
+       * Link
+       ****************************** */
+
+      .c-networks__link {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        @include rem(width, 34px);
+        @include rem(height, 34px);
+        transition: color 0.2s ease;
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-color: $color-primary;
+          @include rem(border-radius, 17px);
+          transition: transform 0.2s ease, opacity 0.2s ease;
+          transform: scale(0);
+          opacity: 0;
+          z-index: -1;
+        }
+
+        &:hover {
+          color: $color-background;
+
+          &:before {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+      }
+
+        .c-networks__icon {}

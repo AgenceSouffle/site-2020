@@ -1,0 +1,77 @@
+/**
+ * COMPONENTS
+ * Name : Steps
+ ************************************************************ */
+
+
+.c-steps {
+  position: relative;
+}
+
+
+  /**
+   * Items
+   ****************************** */
+
+  .c-steps__items {}
+
+
+    /**
+     * Item
+     ****************************** */
+
+    .c-steps__item {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+
+      &:not(:first-child) {
+        @include rem(margin-top, $gutter-size*2);
+      }
+    }
+
+
+      /**
+       * Aside
+       ****************************** */
+
+      .c-steps__aside {
+        position: relative;
+        flex: 0 0 auto;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        @include rem(width, 200px);
+        @include rem(padding-top, $gutter-size/4);
+      }
+
+        .c-steps__number {
+          font-family: $font-secondary;
+          @include font-size(38px, 38px);
+          font-weight: $font-bold;
+          color: $color-primary;
+          z-index: 1;
+        }
+
+        .c-steps__title {
+          position: relative;
+          text-align: center;
+          z-index: 2;
+        }
+
+
+      /**
+       * Main
+       ****************************** */
+
+      .c-steps__main {
+
+        &:not(:first-child) {
+          @include rem(margin-left, $gutter-size*4);
+        }
+      }
+
+        .c-steps__description {}

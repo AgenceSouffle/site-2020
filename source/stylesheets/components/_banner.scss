@@ -1,0 +1,69 @@
+/**
+ * COMPONENTS
+ * Name : Banner
+ ************************************************************ */
+
+
+.c-banner {
+  position: relative;
+  background-color: $color-light-grey;
+
+  body.has-picture-banner & {
+    color: $color-background;
+  }
+}
+
+
+  /**
+   * Background
+   ****************************** */
+
+  .c-banner__background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+    .c-banner__picture {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+
+  /**
+   * Foreground
+   ****************************** */
+
+  .c-banner__foreground {
+    position: relative;
+    z-index: 2;
+
+    body.has-picture-banner & {
+      background: linear-gradient(to top, rgba($color-foreground, 0.6), rgba($color-foreground, 0.2));
+    }
+  }
+
+
+  /**
+   * Container
+   ****************************** */
+
+  .c-banner__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    @include rem(min-height, 375px);
+    @include rem(padding-top, 116px);
+    text-align: center;
+  }
+
+    .c-banner__title {
+      @include font-size(38px, 52px);
+    }

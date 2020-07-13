@@ -1,0 +1,57 @@
+/**
+ * COMPONENTS
+ * Name : Breadcrumb
+ ************************************************************ */
+
+
+.c-breadcrumb {
+  position: relative;
+}
+
+
+  /**
+   * Items
+   ****************************** */
+
+  .c-breadcrumb__items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    @include rem(padding-top, $gutter-size*2);
+    @include rem(padding-bottom, $gutter-size*2);
+  }
+
+
+    /**
+     * Item
+     ****************************** */
+
+    .c-breadcrumb__item {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      @include font-size(12px, 15px);
+      font-weight: $font-bold;
+
+      &:not(:first-child) {
+
+        &:before {
+          content: '›';
+          display: block;
+          @include rem(margin-right, $gutter-size/4);
+          @include rem(margin-left, $gutter-size/4);
+        }
+      }
+    }
+
+      .c-breadcrumb__link {
+        color: $color-primary;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .c-breadcrumb__label {}

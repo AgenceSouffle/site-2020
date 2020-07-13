@@ -8,15 +8,26 @@ html
     / Use the title from a page's frontmatter if it has one
     title= current_page.data.title || "Middleman"
     = stylesheet_link_tag "site"
-    = javascript_include_tag "site"
 
-  body(class="#{page_classes}")
+
+  body(class=body_class)
+
 
     / Header
     = partial "layouts/partials/header"
 
-    main
+
+    / Main
+    main.l-main
       = yield
+
 
     / Footer
     = partial "layouts/partials/footer"
+
+
+    / Foot
+    = javascript_include_tag "vendors/jquery.min.js"
+    = javascript_include_tag "vendors/slick.min.js"
+    = javascript_include_tag "vendors/aos.min.js"
+    = javascript_include_tag "site"

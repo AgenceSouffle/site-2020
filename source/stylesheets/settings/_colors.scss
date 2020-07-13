@@ -1,0 +1,49 @@
+/**********************************************************************************
+ * SETTINGS
+ * Name : Colors
+ **********************************************************************************/
+
+
+/**
+ * Descriptives colors
+ **********************************************************************************/
+
+$color-black: #2f3031;
+$color-white: #fff;
+
+$color-beige: #e1b770;
+$color-pink: #f3dbd1;
+$color-orange: #eba56d;
+$color-grey: #cfdbdd;
+$color-light-grey: #eff2f2;
+
+
+/**
+ * Functionals colors
+ **********************************************************************************/
+
+$color-foreground: $color-black;
+$color-background: $color-white;
+
+$color-primary: $color-orange;
+$color-secondary: $color-pink;
+
+$color-success: $color-black;
+$color-error: $color-black;
+$color-outline: $color-black;
+
+
+/**
+ * Utilities colors
+ **********************************************************************************/
+
+// $colors-variants: (
+//   "-primary": $color-primary,
+//   "-secondary": $color-secondary,
+//   "-blue": $color-blue,
+//   "-dark-blue": $color-dark-blue,
+//   "-light-blue": $color-light-blue,
+//   "-clear-blue": $color-clear-blue,
+//   "-green": $color-green,
+//   "-red": $color-red,
+// );
