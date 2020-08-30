@@ -69,11 +69,11 @@
     }
 
     @include mq($until: small) {
-      @include font-size(28px, 34px);
+      @include font-size(26px, 32px);
     }
 
     @include mq($from: small, $until: medium) {
-      @include font-size(30px, 38px);
+      @include font-size(28px, 36px);
     }
 
     @include mq($from: medium, $until: large) {

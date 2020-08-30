@@ -1,0 +1,36 @@
+---
+title: Conditions Générales de Vente | Agence Souffle, stratégie et production de contenus
+---
+
+- body_class ""
+
+
+/ INTRODUCTION
+.l-main__head
+
+  .c-banner
+    .l-container
+      .c-banner__container
+        h1.c-banner__title= "Conditions Générales de Vente"
+
+  .c-breadcrumb
+    .l-container.l-container--large
+      .c-breadcrumb__items
+        .c-breadcrumb__item
+          = link_to "Accueil", "/", :class => "c-breadcrumb__link"
+        .c-breadcrumb__item
+          .c-breadcrumb__label= "Conditions Générales de Vente"
+
+
+.l-main__body
+
+
+  / REALISTATIONS
+  .l-main__section
+    .l-section
+
+      .l-section__body
+        .l-container
+
+          .s-richtext
+            = dato.terms_of_sale.content

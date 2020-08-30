@@ -12,6 +12,10 @@
     @include rem(margin-top, $gutter-size*4.5);
   }
 
+  body.page-contact & {
+    padding-top: 0;
+  }
+
   @include mq($until: small) {
     @include rem(padding-top, 45px);
   }
@@ -51,6 +55,10 @@
       left: 50%;
       transform: translateX(-50%);
 
+      body.page-contact & {
+        display: none;
+      }
+
       @include mq($until: small) {
         @include rem(width, 480px);
         @include rem(height, 45px);
@@ -85,6 +93,10 @@
     .l-footer__head {
       color: $color-foreground;
       background-color: $color-primary;
+
+      body.page-contact & {
+        display: none;
+      }
 
       @include mq($until: small) {
         @include rem(padding-top, $gutter-size*3);

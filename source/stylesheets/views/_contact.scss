@@ -1,0 +1,133 @@
+/**
+ * VIEWS
+ * Name : Contact
+ ************************************************************ */
+
+
+.v-contact {
+  position: relative;
+}
+
+
+  /**
+   * Container
+   ****************************** */
+
+  .v-contact__container {
+
+    @include mq($from: large) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+
+    @include mq($from: large, $until: xlarge) {
+      @include rem(min-height, 500px);
+    }
+
+    @include mq($from: xlarge) {
+      @include rem(min-height, 600px);
+    }
+  }
+
+
+    /**
+     * Side
+     ****************************** */
+
+    .v-contact__side {
+
+      @include mq($until: medium) {
+
+        .l-container &:nth-child(even) {
+          @include rem(margin-right, -$gutter-size);
+          @include rem(margin-left, -$gutter-size);
+        }
+      }
+
+      @include mq($until: large) {
+
+        &:not(:first-child) {
+          @include rem(margin-top, $gutter-size*2);
+        }
+
+        &:nth-child(even) {
+          @include rem(padding, $gutter-size*2 $gutter-size);
+          background-color: $color-lighter-grey;
+        }
+
+        .c-heading,
+        .c-heading--left {
+          text-align: center;
+
+          .c-heading__title {
+            margin-right: auto;
+            margin-left: auto;
+          }
+        }
+      }
+
+      @include mq($from: large) {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+
+        &:nth-child(odd) {
+          background-color: $color-light-grey;
+        }
+
+        &:nth-child(even) {
+          background-color: $color-lighter-grey;
+        }
+      }
+
+      @include mq($from: large, $until: xlarge) {
+        @include rem(padding, $gutter-size*3 $gutter-size*2);
+      }
+
+      @include mq($from: xlarge) {
+        @include rem(padding, $gutter-size*5 $gutter-size*3);
+      }
+    }
+
+      .v-contact__item {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+
+        &:not(:first-child) {
+          @include rem(margin-top, $gutter-size*2.5);
+        }
+      }
+
+        .v-contact__label {
+          @include font-size(14px, 18px);
+        }
+
+        .v-contact__value {
+          @include font-size(20px, 24px);
+          font-weight: $font-bold;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: $color-primary;
+          }
+
+          &:not(:first-child) {
+            @include rem(margin-top, $gutter-size/4);
+          }
+        }
+
+        .v-contact__subitem {
+          position: relative;
+          z-index: 2;
+
+          &:not(:first-child) {
+            @include rem(margin-top, $gutter-size/4);
+          }
+        }
