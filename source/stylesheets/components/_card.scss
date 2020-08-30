@@ -14,13 +14,30 @@
  ****************************** */
 
 .c-card--alt {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  @include rem(padding, $gutter-size*1.5);
   background-color: $color-light-grey;
-  @include rem(border-radius, 80px);
+
+  @include mq($until: small) {
+    @include rem(padding, $gutter-size $gutter-size*0.75);
+  }
+
+  @include mq($from: small) {
+    @include rem(padding, $gutter-size*1.5);
+  }
+
+  @include mq($from: medium) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  @include mq($until: large) {
+    @include rem(border-radius, 50px);
+  }
+
+  @include mq($from: large) {
+    @include rem(border-radius, 80px);
+  }
 }
 
 
@@ -39,6 +56,20 @@
       display: block;
       margin-right: auto;
       margin-left: auto;
+      transition: transform 0.3s ease, filter 0.3s ease;
+
+      .c-card:not(.c-card--alt):hover & {
+        transform: translate3d(0, -10px, 0);
+        filter: drop-shadow(10px 10px 10px rgba($color-black, 0.1));
+      }
+
+      @include mq($until: small) {
+        @include rem(max-width, 160px);
+      }
+
+      @include mq($from: medium, $until: large) {
+        @include rem(max-width, 160px);
+      }
     }
 
 
@@ -49,27 +80,92 @@
   .c-card__body {
     text-align: center;
 
-    &:not(:first-child) {
-      @include rem(margin-top, $gutter-size*1.5);
-    }
-
     .c-card--alt & {
       flex: 1 1 auto;
-      text-align: left;
+
+      @include mq($from: medium) {
+        text-align: left;
+
+        &:not(:first-child) {
+          margin-top: 0;
+        }
+      }
+
+      @include mq($from: medium, $until: large) {
+
+        &:not(:first-child) {
+          @include rem(margin-left, $gutter-size*1.5);
+        }
+      }
+
+      @include mq($from: large) {
+
+        &:not(:first-child) {
+          @include rem(margin-left, $gutter-size*3);
+        }
+      }
+    }
+
+    @include mq($until: small) {
 
       &:not(:first-child) {
-        margin-top: 0;
-        @include rem(margin-left, $gutter-size*3);
+        @include rem(margin-top, $gutter-size*0.75);
+      }
+    }
+
+    @include mq($from: small) {
+
+      &:not(:first-child) {
+        @include rem(margin-top, $gutter-size*1.5);
       }
     }
   }
 
     .c-card__title {}
 
+      .c-card__link {
+        transition: color 0.2s ease;
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: 1;
+        }
+
+        &:hover {
+          color: $color-primary;
+        }
+      }
+
     .c-card__description {
 
-      &:not(:first-child) {
-        @include rem(margin-top, $gutter-size*0.75);
+      @include mq($until: small) {
+
+        &:not(:first-child) {
+          @include rem(margin-top, $gutter-size/2);
+        }
+      }
+
+      @include mq($from: small) {
+
+        &:not(:first-child) {
+          @include rem(margin-top, $gutter-size*0.75);
+        }
+      }
+
+      @include mq($until: large) {
+
+        .c-card--alt & {
+          @include font-size(14px, 20px);
+
+          &:not(:first-child) {
+            @include rem(margin-top, $gutter-size/4);
+          }
+        }
       }
     }
 

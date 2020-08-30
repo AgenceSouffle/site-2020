@@ -54,14 +54,14 @@ title: Réalisations | Agence Souffle, stratégie et production de contenus
                   - else
                     - picture_height = 380
 
-                  - reference_link = (reference.client + " " + reference.short_description).slugify
+                  - reference_link = (reference.client + " " + reference.title).slugify
 
                   .l-gallery__item
                     .l-gallery__head
                       = image_tag reference.thumbnail.url({ w: 575, h: picture_height, fit: "crop", crop: "center" }), :class => "l-gallery__picture"
                     .l-gallery__body
                       h2.l-gallery__title.c-subtitle
-                        = link_to reference.client, "/realisations/#{reference_link}/", :class => "l-gallery__link"
+                        = link_to reference.title, "/realisations/#{reference_link}/", :class => "l-gallery__link"
                       p.l-gallery__description= reference.short_description
 
 
@@ -73,12 +73,12 @@ title: Réalisations | Agence Souffle, stratégie et production de contenus
                   - else
                     - picture_height = 380
 
-                  - reference_link = (reference.client + " " + reference.short_description).slugify
+                  - reference_link = (reference.client + " " + reference.title).slugify
 
                   .l-gallery__item
                     .l-gallery__head
                       = image_tag reference.thumbnail.url({ w: 575, h: picture_height, fit: "crop", crop: "center" }), :class => "l-gallery__picture"
                     .l-gallery__body
                       h2.l-gallery__title.c-subtitle
-                        = link_to reference.client, "/realisations/#{reference_link}/", :class => "l-gallery__link"
+                        = link_to reference.title, "/realisations/#{reference_link}/", :class => "l-gallery__link"
                       p.l-gallery__description= reference.short_description

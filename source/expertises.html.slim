@@ -31,7 +31,7 @@ title: Expertises | Agence Souffle, stratégie et production de contenus
 
 
   / STRATEGIE
-  .l-main__section
+  .l-main__section(id="strategie-de-communication")
     .l-section
 
       .l-section__head
@@ -64,7 +64,7 @@ title: Expertises | Agence Souffle, stratégie et production de contenus
 
 
   / PRODUCTION
-  .l-main__section
+  .l-main__section(id="production-de-contenus")
     .l-section
 
       .l-section__head
@@ -83,6 +83,9 @@ title: Expertises | Agence Souffle, stratégie et production de contenus
               .c-media__container
                 .c-media__aside
                   img.c-media__picture(src=service.picture.url)
+                  - if defined?(service.video) and service.video
+                    .c-media__veil.js-overlay-open(data-target="#service-#{index}")
+                      .c-media__icon
                 .c-media__main
                   .s-richtext
                     h3= service.title
@@ -107,7 +110,7 @@ title: Expertises | Agence Souffle, stratégie et production de contenus
 
 
   / FORMATION
-  .l-main__section
+  .l-main__section(id="formation")
     .l-section
 
       .l-section__body
@@ -120,3 +123,23 @@ title: Expertises | Agence Souffle, stratégie et production de contenus
                 .s-richtext
                   h3= dato.expertises_page.training_title
                   = dato.expertises_page.training_description
+
+
+/ OVERLAYS
+- vimeo_videos = 0
+
+- dato.expertises_page.production_services.each_with_index do |service, index|
+  - if defined?(service.video) and service.video
+    - vimeo_videos = vimeo_videos + 1
+    .l-overlay.js-overlay(id="service-#{index}")
+      .l-overlay__container
+        button.l-overlay__close.js-overlay-close(type="button")
+          svg.l-overlay__icon(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="25" height="25")
+            g(fill="currentColor" fill-rule="nonzero")
+              path(d="M.4393398 2.5606602l37 37c.5857865.5857864 1.5355339.5857864 2.1213204 0 .5857864-.5857865.5857864-1.5355339 0-2.1213204l-37-37c-.5857865-.5857864-1.535534-.5857864-2.1213204 0-.5857864.5857865-.5857864 1.535534 0 2.1213204z")
+              path(d="M39.5606602 2.5606602l-37 37c-.5857865.5857864-1.5355339.5857864-2.1213204 0-.5857864-.5857865-.5857864-1.5355339 0-2.1213204l37-37c.5857865-.5857864 1.535534-.5857864 2.1213204 0 .5857864.5857865.5857864 1.535534 0 2.1213204z")
+        .l-overlay__content
+          iframe(src="https://player.vimeo.com/video/#{service.video.provider_uid}?title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen)
+
+- if vimeo_videos > 0
+  script(src="https://player.vimeo.com/api/player.js")

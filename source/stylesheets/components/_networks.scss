@@ -28,8 +28,11 @@
     .c-networks__item {
       flex: 0 0 auto;
 
-      &:not(:first-child) {
-        @include rem(margin-left, $gutter-size/4);
+      @include mq($from: xlarge) {
+
+        &:not(:first-child) {
+          @include rem(margin-left, $gutter-size/4);
+        }
       }
     }
 

@@ -6,8 +6,15 @@
 
 .c-subtitle {
   font-family: $font-secondary;
-  @include font-size(18px, 26px);
   font-weight: $font-bold;
   @include rem(letter-spacing, 1.45px);
   text-transform: uppercase;
+
+  @include mq($until: medium) {
+    @include font-size(16px, 20px);
+  }
+
+  @include mq($from: medium) {
+    @include font-size(18px, 26px);
+  }
 }

@@ -16,6 +16,13 @@
 
 .c-heading--left {
   text-align: left;
+
+  @include mq($until: large) {
+
+    .l-footer & {
+      text-align: center;
+    }
+  }
 }
 
 
@@ -25,9 +32,17 @@
 
   .c-heading__label {
     font-family: $font-secondary;
-    @include font-size(14px, 20px);
-    @include rem(letter-spacing, 2px);
     text-transform: uppercase;
+
+    @include mq($until: small) {
+      @include font-size(12px, 20px);
+      @include rem(letter-spacing, 1.5px);
+    }
+
+    @include mq($from: small) {
+      @include font-size(14px, 20px);
+      @include rem(letter-spacing, 2px);
+    }
   }
 
 
@@ -39,11 +54,41 @@
     @include rem(max-width, 480px);
     margin-right: auto;
     margin-left: auto;
-    @include font-size(34px, 46px);
 
     .c-heading--left & {
       margin-left: 0;
       margin-right: auto;
+
+      @include mq($until: large) {
+
+        .l-footer & {
+          margin-right: auto;
+          margin-left: auto;
+        }
+      }
+    }
+
+    @include mq($until: small) {
+      @include font-size(28px, 34px);
+    }
+
+    @include mq($from: small, $until: medium) {
+      @include font-size(30px, 38px);
+    }
+
+    @include mq($from: medium, $until: large) {
+      @include font-size(32px, 42px);
+    }
+
+    @include mq($from: large) {
+      @include font-size(34px, 46px);
+    }
+
+    strong {
+
+      .l-footer__main & {
+        color: $color-background;
+      }
     }
   }
 

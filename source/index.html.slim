@@ -13,6 +13,10 @@ title: Agence Souffle, stratégie et production de contenus
 .l-main__head
   .c-introduction
     .c-introduction__background
+      video.c-introduction__video(preload="auto" autoplay loop muted)
+        / source(src="https://player.vimeo.com/external/450470786.hd.mp4?s=e5219f1e05d4066374056804f8be001b6f1c8b39&profile_id=174" type="video/mp4")
+        source(src="#{dato.homepage.video_url}" type="video/mp4")
+        = "Sorry, your browser doesn't support embedded videos."
     .c-introduction__foreground
       .l-container.l-container--small
         .c-introduction__container
@@ -50,7 +54,8 @@ title: Agence Souffle, stratégie et production de contenus
                     .c-card__head
                       = image_tag expertise.picture.url({ w: 210, h: 210 }), :class => "c-card__picture"
                     .c-card__body
-                      .c-card__title.c-subtitle= expertise.title
+                      .c-card__title.c-subtitle
+                        = link_to expertise.title, "/expertises/#{expertise.anchor_id}", :class => "c-card__link"
                       .c-card__description= expertise.description
 
       .l-section__foot
@@ -70,7 +75,7 @@ title: Agence Souffle, stratégie et production de contenus
               .c-card__title.c-subtitle= dato.homepage.training_title
               .c-card__description= dato.homepage.training_description
               .c-card__more
-                = link_to "En savoir plus", "/expertises/", :class => "c-card__button c-button c-button--secondary"
+                = link_to "En savoir plus", "/expertises/#formation", :class => "c-card__button c-button c-button--secondary"
 
 
   / REALISATIONS
@@ -89,9 +94,24 @@ title: Agence Souffle, stratégie et production de contenus
         .l-container.l-container--large
           .c-slider
             .c-slider__items.js-slider
-              - dato.homepage.references_pictures.each do |picture|
+
+              - dato.references.each do |reference|
+
+                - if defined?(reference.illustration) and reference.illustration
+                  - reference_picture = reference.illustration
+                - else
+                  - reference_picture = reference.thumbnail
+
+                - reference_link = (reference.client + " " + reference.title).slugify
+
                 .c-slider__item
-                  = image_tag picture.url({ w: 410, h: 410, fit: "crop", crop: "center" }), :class => "c-slider__picture"
+                  = link_to "/realisations/#{reference_link}/", :class => "c-slider__link" do
+                    .c-slider__background
+                      = image_tag reference_picture.url({ w: 410, h: 410, fit: "crop", crop: "center" }), :class => "c-slider__picture"
+                    .c-slider__foreground
+                      h3.c-slider__title.c-subtitle= reference.title
+                      p.c-slider__description= reference.short_description
+
             .c-slider__buttons
               button.c-slider__button.c-slider__button--prev.js-slider-prev
                 svg(viewBox="0 0 24 42" width="24" height="42" xmlns="http://www.w3.org/2000/svg")

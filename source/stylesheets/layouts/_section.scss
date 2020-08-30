@@ -34,7 +34,14 @@
   .l-section__body {
 
     &:not(:first-child) {
-      @include rem(margin-top, $gutter-size*3);
+
+      @include mq($until: medium) {
+        @include rem(margin-top, $gutter-size*2);
+      }
+
+      @include mq($from: medium) {
+        @include rem(margin-top, $gutter-size*3);
+      }
     }
   }
 
@@ -47,6 +54,13 @@
     text-align: center;
 
     &:not(:first-child) {
-      @include rem(margin-top, $gutter-size*3);
+
+      @include mq($until: medium) {
+        @include rem(margin-top, $gutter-size*2);
+      }
+
+      @include mq($from: medium) {
+        @include rem(margin-top, $gutter-size*3);
+      }
     }
   }

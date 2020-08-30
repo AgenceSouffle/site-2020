@@ -20,6 +20,11 @@
     background-color: rgba($color-background, 0);
   }
 
+  body.menu-active.homepage &,
+  body.menu-active.has-picture-banner & {
+    color: $color-foreground;
+  }
+
   body.is-scrolled & {
     position: fixed;
     color: $color-foreground;
@@ -39,16 +44,57 @@
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: center;
-    @include rem(height, 115px);
     @include rem(margin-right, -$gutter-size/2);
     @include rem(margin-left, -$gutter-size/2);
     @include rem(padding-top, $gutter-size*0.75);
     @include rem(padding-bottom, $gutter-size*0.75);
     transition: height 0.2s ease;
 
-    body.is-scrolled & {
-      @include rem(height, 75px);
+    @include mq($until: small) {
+      @include rem(height, 86px);
+
+      body.is-scrolled.menu-active & {
+        @include rem(height, 86px);
+      }
+    }
+
+    @include mq($from: small, $until: medium) {
+      @include rem(height, 94px);
+
+      body.is-scrolled.menu-active & {
+        @include rem(height, 94px);
+      }
+    }
+
+    @include mq($until: medium) {
+
+      body.is-scrolled & {
+        @include rem(height, 60px);
+      }
+    }
+
+    @include mq($from: medium) {
+
+      body.is-scrolled & {
+        @include rem(height, 75px);
+      }
+    }
+
+    @include mq($from: medium, $until: large) {
+      @include rem(height, 102px);
+
+      body.is-scrolled.menu-active & {
+        @include rem(height, 102px);
+      }
+    }
+
+    @include mq($until: large) {
+      justify-content: space-between;
+    }
+
+    @include mq($from: large) {
+      justify-content: center;
+      @include rem(height, 115px);
     }
   }
 
@@ -63,22 +109,30 @@
       @include rem(padding-left, $gutter-size/2);
     }
 
-    .l-header__section--home,
-    .l-header__section--networks {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+
+    /**
+     * Home
+     ****************************** */
 
     .l-header__section--home {
-      left: 0;
+
+      @include mq($until: large) {
+        position: relative;
+        z-index: 999;
+      }
+
+      @include mq($from: large) {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
     }
 
-    .l-header__section--networks {
-      right: 0;
-    }
 
-    .l-header__section--navigation {}
+      /**
+       * Home
+       ****************************** */
 
       .l-header__home {
         display: block;
@@ -87,10 +141,178 @@
       }
 
         .l-header__logo {
-          height: auto;
-          transition: width 0.2s ease;
+          transition: width 0.2s ease, height 0.2s ease;
 
-          body.is-scrolled & {
-            @include rem(width, 80px);
+          @include mq($until: small) {
+            @include rem(width, 100px);
+            @include rem(height, 56px);
+
+            body.is-scrolled.menu-active & {
+              @include rem(width, 100px);
+              @include rem(height, 56px);
+            }
           }
+
+          @include mq($from: small, $until: medium) {
+            @include rem(width, 115px);
+            @include rem(height, 64px);
+
+            body.is-scrolled.menu-active & {
+              @include rem(width, 115px);
+              @include rem(height, 64px);
+            }
+          }
+
+          @include mq($until: medium) {
+
+            body.is-scrolled & {
+              @include rem(width, 70px);
+              @include rem(height, 39px);
+            }
+          }
+
+          @include mq($from: medium) {
+
+            body.is-scrolled & {
+              @include rem(width, 80px);
+              @include rem(height, 45px);
+            }
+          }
+
+          @include mq($from: medium, $until: large) {
+            @include rem(width, 130px);
+            @include rem(height, 72px);
+
+            body.is-scrolled.menu-active & {
+              @include rem(width, 130px);
+              @include rem(height, 72px);
+            }
+          }
+
+          @include mq($from: large) {
+            @include rem(width, 153px);
+            @include rem(height, 85px);
+          }
+        }
+
+
+    /**
+     * Networks
+     ****************************** */
+
+    .l-header__section--networks {
+
+      @include mq($until: large) {
+        position: fixed;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        @include rem(padding-right, $gutter-size);
+        @include rem(padding-bottom, $gutter-size);
+        @include rem(padding-left, $gutter-size);
+        transition: opacity 0.4s ease, z-index 0.4s ease;
+        pointer-events: none;
+        opacity: 0;
+        z-index: -1;
+
+        body.menu-active & {
+          pointer-events: all;
+          opacity: 1;
+          z-index: 999;
+        }
+      }
+
+      @include mq($from: large) {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+      }
+    }
+
+
+    /**
+     * Navigation
+     ****************************** */
+
+    .l-header__section--navigation {
+
+      @include mq($until: small) {
+        @include rem(padding-top, 86px);
+        @include rem(padding-bottom, 86px);
+      }
+
+      @include mq($from: small, $until: medium) {
+        @include rem(padding-top, 94px);
+        @include rem(padding-bottom, 94px);
+      }
+
+      @include mq($from: medium, $until: large) {
+        @include rem(padding-top, 102px);
+        @include rem(padding-bottom, 102px);
+      }
+
+      @include mq($until: large) {
+        position: fixed;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: $color-light-grey;
+        transition: opacity 0.4s ease, z-index 0.4s ease;
+        pointer-events: none;
+        opacity: 0;
+        z-index: -1;
+
+        body.menu-active & {
+          pointer-events: all;
+          opacity: 1;
+          z-index: 99;
+        }
+      }
+    }
+
+
+    /**
+     * Burger
+     ****************************** */
+
+    .l-header__section--burger {
+
+      @include mq($until: large) {
+        position: relative;
+        @include rem(margin-right, -$gutter-size/2);
+        z-index: 999;
+      }
+
+      @include mq($from: large) {
+        display: none;
+      }
+    }
+
+
+      /**
+       * Button
+       ****************************** */
+
+      .l-header__button {
+        @include appearance;
+        display: block;
+        @include rem(padding, $gutter-size/2);
+        transition: color 0.2s ease;
+      }
+
+        .l-header__icon {
+          display: block;
         }

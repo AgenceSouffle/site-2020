@@ -13,7 +13,7 @@ title: Réalisation | Agence Souffle, stratégie et production de contenus
     .c-banner
       .l-container
         .c-banner__container
-          h1.c-banner__title= reference.client
+          h1.c-banner__title= reference.title
 
     .c-breadcrumb
       .l-container.l-container--large
@@ -23,7 +23,7 @@ title: Réalisation | Agence Souffle, stratégie et production de contenus
           .c-breadcrumb__item
             = link_to "Réalisations", "/realisations/", :class => "c-breadcrumb__link"
           .c-breadcrumb__item
-            .c-breadcrumb__label= reference.client
+            .c-breadcrumb__label= reference.title
 
 
   .l-main__body
@@ -40,8 +40,12 @@ title: Réalisation | Agence Souffle, stratégie et production de contenus
               .v-reference__container
 
                 .v-reference__main
-                  - reference.pictures.each do |picture|
-                    = image_tag picture.url({ w: 690 }), :class => "v-reference__picture"
+                  - reference.media.each_with_index do |medium, index|
+                    .v-reference__medium
+                      = image_tag medium.picture.url({ w: 920 }), :class => "v-reference__picture"
+                      - if defined?(medium.video) and medium.video
+                        .v-reference__veil.js-overlay-open(data-target="#reference-#{index}")
+                          .v-reference__icon
 
                 .v-reference__aside
 
@@ -55,15 +59,37 @@ title: Réalisation | Agence Souffle, stratégie et production de contenus
                       span.v-reference__label= "Client : "
                       span.v-reference__value= reference.client
 
-                    - if reference.mission
+                    - if reference.mission != ""
                       .v-reference__info
                         span.v-reference__label= "Mission : "
                         span.v-reference__value= reference.mission
 
-                    - if reference.link
+                    - if reference.link != ""
                       .v-reference__info
                         span.v-reference__label= "Lien : "
-                        span.v-reference__value= reference.link
+                        span.v-reference__value
+                          = link_to reference.link, reference.link, :class => "v-reference__link"
 
                   - if reference.logo
                     = image_tag reference.logo.url({ w: 280, h: 200 }), :class => "v-reference__logo"
+
+
+/ OVERLAYS
+- vimeo_videos = 0
+
+- reference.media.each_with_index do |medium, index|
+  - if defined?(medium.video) and medium.video
+    - vimeo_videos = vimeo_videos + 1
+    .l-overlay.js-overlay(id="reference-#{index}")
+      .l-overlay__container
+        button.l-overlay__close.js-overlay-close(type="button")
+          svg.l-overlay__icon(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="25" height="25")
+            g(fill="currentColor" fill-rule="nonzero")
+              path(d="M.4393398 2.5606602l37 37c.5857865.5857864 1.5355339.5857864 2.1213204 0 .5857864-.5857865.5857864-1.5355339 0-2.1213204l-37-37c-.5857865-.5857864-1.535534-.5857864-2.1213204 0-.5857864.5857865-.5857864 1.535534 0 2.1213204z")
+              path(d="M39.5606602 2.5606602l-37 37c-.5857865.5857864-1.5355339.5857864-2.1213204 0-.5857864-.5857865-.5857864-1.5355339 0-2.1213204l37-37c.5857865-.5857864 1.535534-.5857864 2.1213204 0 .5857864.5857865.5857864 1.535534 0 2.1213204z")
+        .l-overlay__content
+          iframe(src="https://player.vimeo.com/video/#{medium.video.provider_uid}?title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen)
+
+- if vimeo_videos > 0
+  script(src="https://player.vimeo.com/api/player.js")
+

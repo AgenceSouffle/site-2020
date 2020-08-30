@@ -21,13 +21,21 @@
      ****************************** */
 
     .c-steps__item {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      align-items: flex-start;
 
       &:not(:first-child) {
         @include rem(margin-top, $gutter-size*2);
+      }
+
+      @include mq($from: small, $until: medium) {
+        @include rem(padding-right, $gutter-size*2);
+        @include rem(padding-left, $gutter-size*2);
+      }
+
+      @include mq($from: medium) {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
       }
     }
 
@@ -38,28 +46,61 @@
 
       .c-steps__aside {
         position: relative;
-        flex: 0 0 auto;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        align-items: center;
-        justify-content: center;
-        @include rem(width, 200px);
-        @include rem(padding-top, $gutter-size/4);
+
+        @include mq($until: medium) {
+          text-align: left;
+        }
+
+        @include mq($from: medium) {
+          flex: 0 0 auto;
+          @include rem(width, 200px);
+          @include rem(padding-top, $gutter-size/4);
+          text-align: center;
+        }
       }
 
         .c-steps__number {
           font-family: $font-secondary;
-          @include font-size(38px, 38px);
           font-weight: $font-bold;
           color: $color-primary;
           z-index: 1;
+
+          @include mq($until: small) {
+            @include font-size(32px, 32px);
+          }
+
+          @include mq($from: small, $until: medium) {
+            @include font-size(38px, 38px);
+          }
+
+          @include mq($from: medium, $until: large) {
+            @include font-size(32px, 32px);
+          }
+
+          @include mq($from: large) {
+            @include font-size(38px, 38px);
+          }
         }
 
         .c-steps__title {
           position: relative;
-          text-align: center;
           z-index: 2;
+
+          @include mq($until: small) {
+            @include font-size(32px, 32px);
+          }
+
+          @include mq($from: small, $until: medium) {
+            @include font-size(38px, 38px);
+          }
+
+          @include mq($from: medium, $until: large) {
+            @include font-size(32px, 32px);
+          }
+
+          @include mq($from: large) {
+            @include font-size(38px, 38px);
+          }
         }
 
 
@@ -70,7 +111,14 @@
       .c-steps__main {
 
         &:not(:first-child) {
-          @include rem(margin-left, $gutter-size*4);
+
+          @include mq($from: medium, $until: large) {
+            @include rem(margin-left, $gutter-size*2);
+          }
+
+          @include mq($from: large) {
+            @include rem(margin-left, $gutter-size*4);
+          }
         }
       }
 

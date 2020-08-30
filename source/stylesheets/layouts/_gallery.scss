@@ -14,12 +14,15 @@
    ****************************** */
 
   .l-gallery__container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    @include rem(margin-right, -$gutter-size*1.25);
-    @include rem(margin-left, -$gutter-size*1.25);
+
+    @include mq($from: medium) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      @include rem(margin-right, -$gutter-size*1.25);
+      @include rem(margin-left, -$gutter-size*1.25);
+    }
   }
 
 
@@ -28,10 +31,20 @@
      ****************************** */
 
     .l-gallery__column {
-      flex: 0 0 auto;
-      width: 50%;
-      @include rem(padding-right, $gutter-size*1.25);
-      @include rem(padding-left, $gutter-size*1.25);
+
+      @include mq($until: medium) {
+
+        &:not(:first-child) {
+          @include rem(margin-top, $gutter-size*2);
+        }
+      }
+
+      @include mq($from: medium) {
+        flex: 0 0 auto;
+        width: 50%;
+        @include rem(padding-right, $gutter-size*1.25);
+        @include rem(padding-left, $gutter-size*1.25);
+      }
     }
 
 
@@ -43,7 +56,14 @@
         position: relative;
 
         &:not(:first-child) {
+
+        @include mq($until: medium) {
+          @include rem(margin-top, $gutter-size*2);
+        }
+
+        @include mq($from: medium) {
           @include rem(margin-top, $gutter-size*2.5);
+        }
         }
       }
 
@@ -51,6 +71,8 @@
 
           .l-gallery__picture {
             display: block;
+            margin-right: auto;
+            margin-left: auto;
             transition: box-shadow 0.3s ease;
 
             .l-gallery__item:hover & {

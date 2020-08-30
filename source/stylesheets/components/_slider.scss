@@ -32,11 +32,84 @@
       @include rem(padding-left, $gutter-size/2);
     }
 
-      .c-slider__picture {
+
+      /**
+       * Link
+       ****************************** */
+
+      .c-slider__link {
+        position: relative;
         display: block;
-        margin-right: auto;
-        margin-left: auto;
       }
+
+
+        /**
+         * Background
+         ****************************** */
+
+        .c-slider__background {}
+
+          .c-slider__picture {
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+          }
+
+
+        /**
+         * Foreground
+         ****************************** */
+
+        .c-slider__foreground {
+
+          @include mq($until: large) {
+            display: none;
+          }
+
+          @include mq($from: large) {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            @include rem(padding, $gutter-size);
+            color: $color-white;
+            background-color: rgba($color-black, 0);
+            transition: background-color 0.3s ease;
+
+            .c-slider__link:hover & {
+              background-color: rgba($color-black, 0.6);
+            }
+          }
+        }
+
+          .c-slider__title {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            transform: translate3d(0, $gutter-size*2, 0);
+            opacity: 0;
+
+            .c-slider__link:hover & {
+              transform: translate3d(0, 0, 0);
+              opacity: 1;
+            }
+          }
+
+          .c-slider__description {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            transform: translate3d(0, $gutter-size*2, 0);
+            opacity: 0;
+
+            .c-slider__link:hover & {
+              transition: transform 0.3s ease 0.1s, opacity 0.3s ease 0.1s;
+              transform: translate3d(0, 0, 0);
+              opacity: 1;
+            }
+          }
 
 
   /**

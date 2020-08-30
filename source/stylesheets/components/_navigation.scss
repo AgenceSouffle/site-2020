@@ -14,10 +14,23 @@
    ****************************** */
 
   .c-navigation__items {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
+
+    @include mq($from: small, $until: large) {
+
+      .l-footer & {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+      }
+    }
+
+    @include mq($from: large) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+    }
   }
 
 
@@ -28,11 +41,6 @@
     .c-navigation__item {
       position: relative;
       font-weight: $font-medium;
-      flex: 0 0 auto;
-
-      &:not(:first-child) {
-        @include rem(margin-left, $gutter-size*2.5);
-      }
 
       body.page-expertises &[data-page="expertises"],
       body.page-equipe &[data-page="equipe"],
@@ -44,14 +52,100 @@
           position: absolute;
           @include rem(width, 60px);
           @include rem(height, 2px);
-          @include rem(bottom, -5px);
           left: 50%;
           background-color: $color-primary;
+          transition: bottom 0.2s ease;
           transform: translateX(-50%);
         }
 
         .c-navigation__link:hover {
           color: $color-foreground;
+        }
+      }
+
+      .l-header & {
+
+        @include mq($until: small) {
+          @include font-size(15px, 30px);
+
+          &:not(:first-child) {
+            @include rem(margin-top, $gutter-size/4);
+          }
+        }
+
+        @include mq($from: small, $until: medium) {
+          @include font-size(18px, 33px);
+
+          &:not(:first-child) {
+            @include rem(margin-top, $gutter-size/2);
+          }
+        }
+
+        @include mq($from: medium, $until: large) {
+          @include font-size(21px, 36px);
+
+          &:not(:first-child) {
+            @include rem(margin-top, $gutter-size*0.75);
+          }
+        }
+      }
+
+      .l-footer & {
+
+        @include mq($from: small, $until: medium) {
+          @include font-size(12px, 27px);
+
+          &:not(:first-child) {
+            @include rem(margin-left, $gutter-size/2);
+          }
+        }
+
+        @include mq($from: medium, $until: large) {
+          @include font-size(15px, 30px);
+
+          &:not(:first-child) {
+            @include rem(margin-left, $gutter-size*1.5);
+          }
+        }
+      }
+
+      @include mq($until: large) {
+        text-align: center;
+
+        body.page-expertises &[data-page="expertises"],
+        body.page-equipe &[data-page="equipe"],
+        body.page-realisations &[data-page="realisations"],
+        body.page-contact &[data-page="contact"] {
+
+          &:before {
+            @include rem(bottom, 5px);
+          }
+        }
+      }
+
+      @include mq($from: large) {
+        flex: 0 0 auto;
+        @include font-size(15px, 30px);
+
+        &:not(:first-child) {
+          @include rem(margin-left, $gutter-size*1.5);
+        }
+
+        body.page-expertises &[data-page="expertises"],
+        body.page-equipe &[data-page="equipe"],
+        body.page-realisations &[data-page="realisations"],
+        body.page-contact &[data-page="contact"] {
+
+          &:before {
+            @include rem(bottom, -5px);
+          }
+        }
+
+        body.is-scrolled & {
+
+          &:before {
+            @include rem(bottom, 5px !important);
+          }
         }
       }
     }
@@ -62,6 +156,8 @@
        ****************************** */
 
       .c-navigation__link {
+        display: inline-block;
+        @include rem(padding, $gutter-size/2);
         transition: color 0.2s ease;
 
         &:hover {

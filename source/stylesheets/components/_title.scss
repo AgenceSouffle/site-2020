@@ -6,8 +6,23 @@
 
 .c-title {
   font-family: $font-secondary;
-  @include font-size(32px, 41px);
   font-weight: $font-bold;
   @include rem(letter-spacing, 2.5px);
   text-transform: uppercase;
+
+  @include mq($until: small) {
+    @include font-size(20px, 24px);
+  }
+
+  @include mq($from: small, $until: medium) {
+    @include font-size(24px, 30px);
+  }
+
+  @include mq($from: medium, $until: large) {
+    @include font-size(28px, 35px);
+  }
+
+  @include mq($from: large) {
+    @include font-size(32px, 41px);
+  }
 }

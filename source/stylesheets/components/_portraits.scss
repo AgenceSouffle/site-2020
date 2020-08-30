@@ -21,11 +21,29 @@
      ****************************** */
 
     .c-portraits__item {
-      @include rem(padding-top, $gutter-size*4);
-      @include rem(padding-bottom, $gutter-size*4);
 
       &:nth-child(odd) {
         background-color: $color-light-grey;
+      }
+
+      @include mq($until: small) {
+        @include rem(padding-top, $gutter-size);
+        @include rem(padding-bottom, $gutter-size*2);
+      }
+
+      @include mq($from: small, $until: medium) {
+        @include rem(padding-top, $gutter-size*2);
+        @include rem(padding-bottom, $gutter-size*2);
+      }
+
+      @include mq($from: medium, $until: large) {
+        @include rem(padding-top, $gutter-size*3);
+        @include rem(padding-bottom, $gutter-size*3);
+      }
+
+      @include mq($from: large) {
+        @include rem(padding-top, $gutter-size*4);
+        @include rem(padding-bottom, $gutter-size*4);
       }
     }
 
@@ -35,12 +53,23 @@
        ****************************** */
 
       .c-portraits__container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: flex-start;
-        @include rem(margin-right, -$gutter-size*2);
-        @include rem(margin-left, -$gutter-size*2);
+
+        @include mq($from: medium) {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          align-items: flex-start;
+        }
+
+        @include mq($from: medium, $until: large) {
+          @include rem(margin-right, -$gutter-size*1.5);
+          @include rem(margin-left, -$gutter-size*1.5);
+        }
+
+        @include mq($from: large) {
+          @include rem(margin-right, -$gutter-size*2);
+          @include rem(margin-left, -$gutter-size*2);
+        }
       }
 
 
@@ -49,17 +78,36 @@
          ****************************** */
 
         .c-portraits__aside {
-          flex: 0 0 auto;
-          @include rem(width, 240px);
-          @include rem(padding-right, $gutter-size*2);
-          @include rem(padding-left, $gutter-size*2);
 
-          .c-portraits__item:nth-child(odd) & {
-            order: 2;
+          @include mq($from: small, $until: medium) {
+            float: left;
+            @include rem(width, 140px);
+            @include rem(margin-right, $gutter-size*2);
+            @include rem(margin-bottom, $gutter-size);
           }
 
-          .c-portraits__item:nth-child(even) & {
-            order: 1;
+          @include mq($from: medium) {
+            flex: 0 0 auto;
+
+            .c-portraits__item:nth-child(odd) & {
+              order: 2;
+            }
+
+            .c-portraits__item:nth-child(even) & {
+              order: 1;
+            }
+          }
+
+          @include mq($from: medium, $until: large) {
+            @include rem(width, 220px);
+            @include rem(padding-right, $gutter-size*1.5);
+            @include rem(padding-left, $gutter-size*1.5);
+          }
+
+          @include mq($from: large) {
+            @include rem(width, 240px);
+            @include rem(padding-right, $gutter-size*2);
+            @include rem(padding-left, $gutter-size*2);
           }
         }
 
@@ -96,16 +144,34 @@
          ****************************** */
 
         .c-portraits__main {
-          flex: 1 1 auto;
-          @include rem(padding-right, $gutter-size*2);
-          @include rem(padding-left, $gutter-size*2);
 
-          .c-portraits__item:nth-child(odd) & {
-            order: 1;
+          @include mq($until: small) {
+
+            &:not(:first-child) {
+              @include rem(margin-top, $gutter-size*1.5);
+            }
           }
 
-          .c-portraits__item:nth-child(even) & {
-            order: 2;
+          @include mq($from: medium) {
+            flex: 1 1 auto;
+
+            .c-portraits__item:nth-child(odd) & {
+              order: 1;
+            }
+
+            .c-portraits__item:nth-child(even) & {
+              order: 2;
+            }
+          }
+
+          @include mq($from: medium, $until: large) {
+            @include rem(padding-right, $gutter-size*1.5);
+            @include rem(padding-left, $gutter-size*1.5);
+          }
+
+          @include mq($from: large) {
+            @include rem(padding-right, $gutter-size*2);
+            @include rem(padding-left, $gutter-size*2);
           }
         }
 

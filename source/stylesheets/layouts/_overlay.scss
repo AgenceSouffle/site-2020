@@ -1,0 +1,101 @@
+/**
+ * LAYOUTS
+ * Name : Overlay
+ ************************************************************ */
+
+
+.l-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba($color-black, 0.8);
+  transition: opacity 0.3s ease, z-index 0.3s ease;
+  opacity: 0;
+  z-index: -1;
+
+  &.is-active {
+    opacity: 1;
+    z-index: 999;
+  }
+}
+
+
+  /**
+   * Container
+   ****************************** */
+
+  .l-overlay__container {
+    position: relative;
+    height: 100%;
+
+    @include mq($until: small) {
+      @include rem(padding, $gutter-size*2 $gutter-size);
+    }
+
+    @include mq($from: small, $until: medium) {
+      @include rem(padding, $gutter-size*2.5 $gutter-size);
+    }
+
+    @include mq($from: medium, $until: large) {
+      @include rem(padding, $gutter-size*3 $gutter-size*1.5);
+    }
+
+    @include mq($from: large, $until: xlarge) {
+      @include rem(padding, $gutter-size*3.5 $gutter-size*2);
+    }
+
+    @include mq($from: xlarge) {
+      @include rem(padding, $gutter-size*4 $gutter-size*3);
+    }
+  }
+
+
+    /**
+     * Close
+     ****************************** */
+
+    .l-overlay__close {
+      @include appearance;
+      position: absolute;
+      @include rem(top, $gutter-size);
+      @include rem(right, $gutter-size);
+      color: $color-background;
+      cursor: pointer;
+    }
+
+      .l-overlay__icon {
+        display: block;
+        transition: transform 0.2s ease;
+
+        .l-overlay__close:hover &,
+        .l-overlay__close:focus & {
+          transform: rotate(90deg);
+        }
+
+        @include mq($until: small) {
+          @include rem(width, 16px);
+          @include rem(height, 16px);
+        }
+      }
+
+
+    /**
+     * Content
+     ****************************** */
+
+    .l-overlay__content {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+
+      iframe {
+        width: 100%;
+        height: 100%;
+      }
+    }

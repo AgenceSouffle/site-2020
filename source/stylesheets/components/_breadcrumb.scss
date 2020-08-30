@@ -18,8 +18,16 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    @include rem(padding-top, $gutter-size*2);
-    @include rem(padding-bottom, $gutter-size*2);
+
+    @include mq($until: medium) {
+      @include rem(padding-top, $gutter-size);
+      @include rem(padding-bottom, $gutter-size);
+    }
+
+    @include mq($from: medium) {
+      @include rem(padding-top, $gutter-size*2);
+      @include rem(padding-bottom, $gutter-size*2);
+    }
   }
 
 
@@ -32,7 +40,6 @@
       flex-direction: row;
       flex-wrap: wrap;
       align-items: center;
-      @include font-size(12px, 15px);
       font-weight: $font-bold;
 
       &:not(:first-child) {
@@ -43,6 +50,14 @@
           @include rem(margin-right, $gutter-size/4);
           @include rem(margin-left, $gutter-size/4);
         }
+      }
+
+      @include mq($until: medium) {
+        @include font-size(11px, 14px);
+      }
+
+      @include mq($from: medium) {
+        @include font-size(12px, 15px);
       }
     }
 

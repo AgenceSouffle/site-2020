@@ -36,3 +36,25 @@ $('.js-slider').slick({
   prevArrow: $('.js-slider-prev'),
   nextArrow: $('.js-slider-next')
 });
+
+
+$('.js-overlay-open').on('click', function(event) {
+  event.preventDefault();
+
+  var overlayId = $(this).data('target');
+
+  $(overlayId).addClass('is-active');
+});
+
+$('.js-overlay-close').on('click', function(event) {
+  event.preventDefault();
+
+  $('.js-overlay').removeClass('is-active');
+});
+
+
+$('.js-toggle-menu').on('click', function(event) {
+  event.preventDefault();
+
+  $body.toggleClass('menu-active');
+});

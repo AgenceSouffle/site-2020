@@ -14,12 +14,23 @@
    ****************************** */
 
   .l-grid__items {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    @include rem(margin-top, -$gutter-size);
-    @include rem(margin-right, -$gutter-size*3);
-    @include rem(margin-left, -$gutter-size*3);
+
+    @include mq($from: medium) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      @include rem(margin-top, -$gutter-size);
+    }
+
+    @include mq($from: medium, $until: large) {
+      @include rem(margin-right, -$gutter-size*2);
+      @include rem(margin-left, -$gutter-size*2);
+    }
+
+    @include mq($from: large) {
+      @include rem(margin-right, -$gutter-size*3);
+      @include rem(margin-left, -$gutter-size*3);
+    }
   }
 
 
@@ -28,9 +39,26 @@
      ****************************** */
 
     .l-grid__item {
-      flex: 0 0 auto;
-      width: 50%;
-      @include rem(padding, $gutter-size $gutter-size*3);
+
+      @include mq($until: medium) {
+
+        &:not(:first-child) {
+          @include rem(margin-top, $gutter-size*2);
+        }
+      }
+
+      @include mq($from: medium) {
+        flex: 0 0 auto;
+        width: 50%;
+      }
+
+      @include mq($from: medium, $until: large) {
+        @include rem(padding, $gutter-size $gutter-size*2);
+      }
+
+      @include mq($from: large) {
+        @include rem(padding, $gutter-size $gutter-size*3);
+      }
     }
 
 
