@@ -104,7 +104,10 @@
                 - else
                   - reference_picture = reference.thumbnail
 
-                - reference_link = (reference.client + " " + reference.title).slugify
+                - if reference.client != ""
+                  - reference_link = (reference.client + " " + reference.title).slugify
+                - else
+                  - reference_link = (reference.title).slugify
 
                 .c-slider__item
                   = link_to "/realisations/#{reference_link}/", :class => "c-slider__link" do

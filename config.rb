@@ -4,7 +4,11 @@ activate :directory_indexes
 activate :dato, live_reload: true
 
 dato.references.each do |reference|
-  reference_slug = (reference.client + " " + reference.title).slugify
+  if reference.client != ""
+    reference_slug = (reference.client + " " + reference.title).slugify
+  else
+    reference_slug = (reference.title).slugify
+  end
   proxy "/realisations/#{reference_slug}/index.html", "/realisation.html", :locals => { :reference => reference }
 end
 

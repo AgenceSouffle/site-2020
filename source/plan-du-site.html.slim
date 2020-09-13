@@ -41,7 +41,10 @@
                 = link_to "Réalisations", "/realisations/"
                 ul
                   - dato.references.each do |reference|
-                    - reference_link = (reference.client + " " + reference.title).slugify
+                    - if reference.client != ""
+                      - reference_link = (reference.client + " " + reference.title).slugify
+                    - else
+                      - reference_link = (reference.title).slugify
                     li
                       = link_to reference.title, "/realisations/#{reference_link}/"
               li

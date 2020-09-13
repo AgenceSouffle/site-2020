@@ -56,7 +56,10 @@
                   - else
                     - picture_height = 380
 
-                  - reference_link = (reference.client + " " + reference.title).slugify
+                  - if reference.client != ""
+                    - reference_link = (reference.client + " " + reference.title).slugify
+                  - else
+                    - reference_link = (reference.title).slugify
 
                   .l-gallery__item
                     .l-gallery__head
@@ -76,7 +79,10 @@
                   - else
                     - picture_height = 380
 
-                  - reference_link = (reference.client + " " + reference.title).slugify
+                  - if reference.client != ""
+                    - reference_link = (reference.client + " " + reference.title).slugify
+                  - else
+                    - reference_link = (reference.title).slugify
 
                   .l-gallery__item
                     .l-gallery__head
