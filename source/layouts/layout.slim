@@ -5,8 +5,21 @@ html
     meta(charset="utf-8")
     meta(http-equiv="x-ua-compatible" content="ie=edge")
     meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+
     / Use the title from a page's frontmatter if it has one
-    title= current_page.data.title || "Agence Souffle, stratégie et production de contenus"
+    / title= current_page.data.title || "Agence Souffle, stratégie et production de contenus"
+    / title= (meta_title ? meta_title : "Agence Souffle, stratégie et production de contenus")
+    / meta(name="description" content=(meta_description ? meta_description : ""))
+
+    / meta(property="og:type" content="website")
+    / meta(property="og:locale" content="fr_FR")
+    / meta(property="og:title" content=(meta_title ? meta_title : "Agence Souffle, stratégie et production de contenus"))
+    / meta(property="og:description" content=(meta_description ? meta_description : ""))
+    / meta(property="og:url" content="https://www.headbang.eu#{current_page.url}")
+    / meta(property="og:image" content=(meta_picture ? meta_picture : dato.site.global_seo.fallback_seo.image.url))
+
+    = content_for :meta_tags
+
     = stylesheet_link_tag "site"
 
     link(rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png")

@@ -45,6 +45,7 @@
       body.page-expertises &[data-page="expertises"],
       body.page-equipe &[data-page="equipe"],
       body.page-realisations &[data-page="realisations"],
+      body.page-realisation &[data-page="realisations"],
       body.page-contact &[data-page="contact"] {
 
         &:before {
@@ -56,10 +57,6 @@
           background-color: $color-primary;
           transition: bottom 0.2s ease;
           transform: translateX(-50%);
-        }
-
-        .c-navigation__link:hover {
-          color: $color-foreground;
         }
       }
 
@@ -115,6 +112,7 @@
         body.page-expertises &[data-page="expertises"],
         body.page-equipe &[data-page="equipe"],
         body.page-realisations &[data-page="realisations"],
+        body.page-realisation &[data-page="realisations"],
         body.page-contact &[data-page="contact"] {
 
           &:before {
@@ -134,6 +132,7 @@
         body.page-expertises &[data-page="expertises"],
         body.page-equipe &[data-page="equipe"],
         body.page-realisations &[data-page="realisations"],
+        body.page-realisation &[data-page="realisations"],
         body.page-contact &[data-page="contact"] {
 
           &:before {

@@ -1,7 +1,9 @@
----
-title: Réalisations | Agence Souffle, stratégie et production de contenus
----
+/ META TAGS
+= content_for :meta_tags do
+  = dato_meta_tags(dato.references_page)
 
+
+/ BODY CLASS
 - body_class "page-realisations"
 
 
@@ -59,6 +61,7 @@ title: Réalisations | Agence Souffle, stratégie et production de contenus
                   .l-gallery__item
                     .l-gallery__head
                       = image_tag reference.thumbnail.url({ w: 575, h: picture_height, fit: "crop", crop: "center" }), :class => "l-gallery__picture"
+                      .l-gallery__tag= reference.project_type
                     .l-gallery__body
                       h2.l-gallery__title.c-subtitle
                         = link_to reference.title, "/realisations/#{reference_link}/", :class => "l-gallery__link"
@@ -78,6 +81,7 @@ title: Réalisations | Agence Souffle, stratégie et production de contenus
                   .l-gallery__item
                     .l-gallery__head
                       = image_tag reference.thumbnail.url({ w: 575, h: picture_height, fit: "crop", crop: "center" }), :class => "l-gallery__picture"
+                      .l-gallery__tag= reference.project_type
                     .l-gallery__body
                       h2.l-gallery__title.c-subtitle
                         = link_to reference.title, "/realisations/#{reference_link}/", :class => "l-gallery__link"

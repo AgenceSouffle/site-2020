@@ -57,17 +57,19 @@
 
         &:not(:first-child) {
 
-        @include mq($until: medium) {
-          @include rem(margin-top, $gutter-size*2);
-        }
+          @include mq($until: medium) {
+            @include rem(margin-top, $gutter-size*2);
+          }
 
-        @include mq($from: medium) {
-          @include rem(margin-top, $gutter-size*2.5);
-        }
+          @include mq($from: medium) {
+            @include rem(margin-top, $gutter-size*2.5);
+          }
         }
       }
 
-        .l-gallery__head {}
+        .l-gallery__head {
+          position: relative;
+        }
 
           .l-gallery__picture {
             display: block;
@@ -78,6 +80,17 @@
             .l-gallery__item:hover & {
               @include rem(box-shadow, 10px 10px 20px rgba($color-foreground, 0.2));
             }
+          }
+
+          .l-gallery__tag {
+            position: absolute;
+            @include rem(top, $gutter-size*1.25);
+            left: 0;
+            @include rem(padding, $gutter-size/4 $gutter-size*0.75 $gutter-size/4 $gutter-size/2);
+            @include font-size(12px, 16px);
+            font-weight: $font-bold;
+            color: $color-white;
+            background-color: $color-tertiary;
           }
 
         .l-gallery__body {

@@ -1,7 +1,9 @@
----
-title: Réalisation | Agence Souffle, stratégie et production de contenus
----
+/ META TAGS
+= content_for :meta_tags do
+  = dato_meta_tags(reference)
 
+
+/ BODY CLASS
 - body_class "page-realisation"
 
 
@@ -56,9 +58,10 @@ title: Réalisation | Agence Souffle, stratégie et production de contenus
 
                   .v-reference__infos
 
-                    .v-reference__info
-                      span.v-reference__label= "Client : "
-                      span.v-reference__value= reference.client
+                    - if reference.client != ""
+                      .v-reference__info
+                        span.v-reference__label= "Client : "
+                        span.v-reference__value= reference.client
 
                     - if reference.mission != ""
                       .v-reference__info

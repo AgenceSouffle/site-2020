@@ -30,14 +30,6 @@
     flex-wrap: nowrap;
     align-items: center;
   }
-
-  @include mq($until: large) {
-    @include rem(border-radius, 50px);
-  }
-
-  @include mq($from: large) {
-    @include rem(border-radius, 80px);
-  }
 }
 
 
