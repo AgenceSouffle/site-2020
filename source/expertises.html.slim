@@ -41,7 +41,7 @@
           .c-media
             .c-media__container
               .c-media__aside
-                img.c-media__picture(src=dato.expertises_page.strategy_picture.url)
+                img.c-media__picture(src=dato.expertises_page.strategy_picture.url loading="lazy")
               .c-media__main
                 .s-richtext
                   h2= dato.expertises_page.strategy_title
@@ -84,7 +84,7 @@
             .c-media.c-media--small(class=media_class)
               .c-media__container
                 .c-media__aside
-                  img.c-media__picture(src=service.picture.url)
+                  img.c-media__picture(src=service.picture.url loading="lazy")
                   - if defined?(service.video) and service.video
                     .c-media__veil.js-overlay-open(data-target="#service-#{index}")
                       .c-media__icon
@@ -104,7 +104,7 @@
             .l-grid__items
               - dato.expertises_page.references.each do |picture|
                 .l-grid__item
-                  img.l-grid__picture(src=picture.url)
+                  img.l-grid__picture(src=picture.url loading="lazy")
 
       .l-section__foot
         .l-container
@@ -120,7 +120,7 @@
           .c-media.c-media--small
             .c-media__container
               .c-media__aside
-                img.c-media__picture(src=dato.expertises_page.training_picture.url)
+                img.c-media__picture(src=dato.expertises_page.training_picture.url loading="lazy")
               .c-media__main
                 .s-richtext
                   h3= dato.expertises_page.training_title

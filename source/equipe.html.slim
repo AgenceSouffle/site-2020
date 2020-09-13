@@ -46,7 +46,7 @@
                 .l-container
                   .c-portraits__container
                     .c-portraits__aside
-                      img.c-portraits__picture(src=member.picture.url)
+                      img.c-portraits__picture(src=member.picture.url loading="lazy")
                       .c-portraits__links
                         - if member.instagram
                           = link_to member.instagram, :class => "c-portraits__link", :title => "Instagram", :target => "_blank" do

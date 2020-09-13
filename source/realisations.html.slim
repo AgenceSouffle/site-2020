@@ -63,7 +63,7 @@
 
                   .l-gallery__item
                     .l-gallery__head
-                      = image_tag reference.thumbnail.url({ w: 575, h: picture_height, fit: "crop", crop: "center" }), :class => "l-gallery__picture"
+                      = image_tag reference.thumbnail.url({ w: 575, h: picture_height, fit: "crop", crop: "center" }), :class => "l-gallery__picture", :loading => "lazy"
                       .l-gallery__tag= reference.project_type
                     .l-gallery__body
                       h2.l-gallery__title.c-subtitle
@@ -86,7 +86,7 @@
 
                   .l-gallery__item
                     .l-gallery__head
-                      = image_tag reference.thumbnail.url({ w: 575, h: picture_height, fit: "crop", crop: "center" }), :class => "l-gallery__picture"
+                      = image_tag reference.thumbnail.url({ w: 575, h: picture_height, fit: "crop", crop: "center" }), :class => "l-gallery__picture", :loading => "lazy"
                       .l-gallery__tag= reference.project_type
                     .l-gallery__body
                       h2.l-gallery__title.c-subtitle

@@ -45,7 +45,7 @@
                   - if defined?(reference.media) and reference.media
                     - reference.media.each_with_index do |medium, index|
                       .v-reference__medium
-                        = image_tag medium.picture.url({ w: 920 }), :class => "v-reference__picture"
+                        = image_tag medium.picture.url({ w: 920 }), :class => "v-reference__picture", :loading => "lazy"
                         - if defined?(medium.video) and medium.video
                           .v-reference__veil.js-overlay-open(data-target="#reference-#{index}")
                             .v-reference__icon
@@ -75,7 +75,7 @@
                           = link_to reference.link, reference.link, :class => "v-reference__link"
 
                   - if reference.logo
-                    = image_tag reference.logo.url({ w: 280, h: 200 }), :class => "v-reference__logo"
+                    = image_tag reference.logo.url({ w: 280, h: 200 }), :class => "v-reference__logo", :loading => "lazy"
 
 
 / OVERLAYS

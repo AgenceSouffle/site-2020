@@ -54,7 +54,7 @@
                 .l-grid__item(data-aos="fade-up" data-aos-delay="#{200*(index+1)}")
                   .c-card
                     .c-card__head
-                      = image_tag expertise.picture.url({ w: 210, h: 210 }), :class => "c-card__picture"
+                      = image_tag expertise.picture.url({ w: 210, h: 210 }), :class => "c-card__picture", :loading => "lazy"
                     .c-card__body
                       .c-card__title.c-subtitle
                         = link_to expertise.title, "/expertises/#{expertise.anchor_id}", :class => "c-card__link"
@@ -72,7 +72,7 @@
         .l-container
           .c-card.c-card--alt
             .c-card__head
-              = image_tag dato.homepage.training_picture.url({ w: 210, h: 210 }), :class => "c-card__picture"
+              = image_tag dato.homepage.training_picture.url({ w: 210, h: 210 }), :class => "c-card__picture", :loading => "lazy"
             .c-card__body
               .c-card__title.c-subtitle= dato.homepage.training_title
               .c-card__description= dato.homepage.training_description
@@ -112,7 +112,7 @@
                 .c-slider__item
                   = link_to "/realisations/#{reference_link}/", :class => "c-slider__link" do
                     .c-slider__background
-                      = image_tag reference_picture.url({ w: 410, h: 410, fit: "crop", crop: "center" }), :class => "c-slider__picture"
+                      = image_tag reference_picture.url({ w: 410, h: 410, fit: "crop", crop: "center" }), :class => "c-slider__picture", :loading => "lazy"
                     .c-slider__foreground
                       h3.c-slider__title.c-subtitle= reference.title
                       p.c-slider__description= reference.short_description
@@ -139,7 +139,7 @@
           .c-media.c-media--clean
             .c-media__container
               .c-media__aside
-                = image_tag dato.homepage.team_picture.url({ w: 520, h: 520, fit: "crop", crop: "center" }), :class => "c-media__picture"
+                = image_tag dato.homepage.team_picture.url({ w: 520, h: 520, fit: "crop", crop: "center" }), :class => "c-media__picture", :loading => "lazy"
               .c-media__main
                 .c-heading.c-heading--left
                   p.c-heading__label= "— L'équipe"
