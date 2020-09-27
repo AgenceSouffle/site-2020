@@ -49,7 +49,14 @@ $('.js-overlay-open').on('click', function(event) {
 $('.js-overlay-close').on('click', function(event) {
   event.preventDefault();
 
+  var $this = $(this),
+      $overlay = $this.parents('.js-overlay'),
+      $content = $overlay.find('.js-overlay-content'),
+      content = $content.html();
+
   $('.js-overlay').removeClass('is-active');
+  $content.html("");
+  $content.html(content);
 });
 
 

@@ -18,7 +18,7 @@
     .c-banner__foreground
       .l-container
         .c-banner__container
-          h1.c-banner__title= "Expertises"
+          h1.c-banner__title= dato.expertises_page.title
 
   .c-breadcrumb
     .l-container.l-container--large
@@ -26,7 +26,7 @@
         .c-breadcrumb__item
           = link_to "Accueil", "/", :class => "c-breadcrumb__link"
         .c-breadcrumb__item
-          .c-breadcrumb__label= "Expertises"
+          .c-breadcrumb__label= dato.expertises_page.title
 
 
 .l-main__body
@@ -123,7 +123,7 @@
                 img.c-media__picture(src=dato.expertises_page.training_picture.url loading="lazy")
               .c-media__main
                 .s-richtext
-                  h3= dato.expertises_page.training_title
+                  h2= dato.expertises_page.training_title
                   = dato.expertises_page.training_description
 
 
@@ -140,7 +140,7 @@
             g(fill="currentColor" fill-rule="nonzero")
               path(d="M.4393398 2.5606602l37 37c.5857865.5857864 1.5355339.5857864 2.1213204 0 .5857864-.5857865.5857864-1.5355339 0-2.1213204l-37-37c-.5857865-.5857864-1.535534-.5857864-2.1213204 0-.5857864.5857865-.5857864 1.535534 0 2.1213204z")
               path(d="M39.5606602 2.5606602l-37 37c-.5857865.5857864-1.5355339.5857864-2.1213204 0-.5857864-.5857865-.5857864-1.5355339 0-2.1213204l37-37c.5857865-.5857864 1.535534-.5857864 2.1213204 0 .5857864.5857865.5857864 1.535534 0 2.1213204z")
-        .l-overlay__content
+        .l-overlay__content.js-overlay-content
           iframe(src="https://player.vimeo.com/video/#{service.video.provider_uid}?title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen)
 
 - if vimeo_videos > 0

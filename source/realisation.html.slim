@@ -52,6 +52,9 @@
 
                 .v-reference__aside
 
+                  - if reference.thumbnail
+                      = image_tag reference.thumbnail.url({ w: 920 }), :class => "v-reference__thumbnail", :loading => "lazy"
+
                   - if reference.description
                     .v-reference__content
                       .s-richtext= reference.description
@@ -78,6 +81,12 @@
                     = image_tag reference.logo.url({ w: 280, h: 200 }), :class => "v-reference__logo", :loading => "lazy"
 
 
+        .l-section__foot
+          .l-container.l-container--small
+            = link_to "Voir d'autres réalisations", "/realisations/", :class => "c-button"
+
+
+
 / OVERLAYS
 - if defined?(reference.media) and reference.media
   - vimeo_videos = 0
@@ -92,7 +101,7 @@
               g(fill="currentColor" fill-rule="nonzero")
                 path(d="M.4393398 2.5606602l37 37c.5857865.5857864 1.5355339.5857864 2.1213204 0 .5857864-.5857865.5857864-1.5355339 0-2.1213204l-37-37c-.5857865-.5857864-1.535534-.5857864-2.1213204 0-.5857864.5857865-.5857864 1.535534 0 2.1213204z")
                 path(d="M39.5606602 2.5606602l-37 37c-.5857865.5857864-1.5355339.5857864-2.1213204 0-.5857864-.5857865-.5857864-1.5355339 0-2.1213204l37-37c.5857865-.5857864 1.535534-.5857864 2.1213204 0 .5857864.5857865.5857864 1.535534 0 2.1213204z")
-          .l-overlay__content
+          .l-overlay__content.js-overlay-content
             iframe(src="https://player.vimeo.com/video/#{medium.video.provider_uid}?title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen)
 
   - if vimeo_videos > 0

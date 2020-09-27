@@ -18,7 +18,7 @@
     .c-banner__foreground
       .l-container
         .c-banner__container
-          h1.c-banner__title= "L'équipe"
+          h1.c-banner__title= dato.team_page.title
 
   .c-breadcrumb
     .l-container.l-container--large
@@ -26,7 +26,7 @@
         .c-breadcrumb__item
           = link_to "Accueil", "/", :class => "c-breadcrumb__link"
         .c-breadcrumb__item
-          .c-breadcrumb__label= "L'équipe"
+          .c-breadcrumb__label= dato.team_page.title
 
 
 .l-main__body
@@ -46,7 +46,7 @@
                 .l-container
                   .c-portraits__container
                     .c-portraits__aside
-                      img.c-portraits__picture(src=member.picture.url loading="lazy")
+                      = image_tag member.picture.url({ w: 440, h: 440, fit: "crop", crop: "center" }), :class => "c-portraits__picture", :loading => "lazy"
                       .c-portraits__links
                         - if member.instagram
                           = link_to member.instagram, :class => "c-portraits__link", :title => "Instagram", :target => "_blank" do

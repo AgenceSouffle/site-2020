@@ -11,9 +11,14 @@
 .l-main__head
 
   .c-banner
-    .l-container
-      .c-banner__container
-        h1.c-banner__title= "Réalisations"
+    - if dato.references_page.background_picture
+      - body_class "has-picture-banner"
+      .c-banner__background
+        img.c-banner__picture(src=dato.references_page.background_picture.url)
+    .c-banner__foreground
+      .l-container
+        .c-banner__container
+          h1.c-banner__title= dato.references_page.title
 
   .c-breadcrumb
     .l-container.l-container--large
@@ -21,7 +26,7 @@
         .c-breadcrumb__item
           = link_to "Accueil", "/", :class => "c-breadcrumb__link"
         .c-breadcrumb__item
-          .c-breadcrumb__label= "Réalisations"
+          .c-breadcrumb__label= dato.references_page.title
 
 
 .l-main__body

@@ -129,11 +129,6 @@
 
       @include mq($until: large) {
         order: 1;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        @include rem(margin-right, -$gutter-size);
-        @include rem(margin-left, -$gutter-size);
       }
 
       @include mq($from: large) {
@@ -152,22 +147,37 @@
       }
     }
 
+      .v-reference__thumbnail {
+
+        @include mq($until: large) {
+
+          &:not(:first-child) {
+            @include rem(margin-top, $gutter-size*2);
+          }
+        }
+
+        @include mq($from: large) {
+          display: none;
+        }
+      }
+
       .v-reference__content {
 
         @include mq($until: large) {
-          order: 1;
-          flex: 0 0 auto;
-          width: 100%;
-          @include rem(padding, 0 $gutter-size $gutter-size);
+
+          &:not(:first-child) {
+            @include rem(margin-top, $gutter-size*2);
+          }
         }
       }
 
       .v-reference__infos {
 
         @include mq($until: large) {
-          order: 3;
-          flex: 1 1 auto;
-          @include rem(padding, $gutter-size*1.5 $gutter-size 0);
+
+          &:not(:first-child) {
+            @include rem(margin-top, $gutter-size*2);
+          }
         }
 
         @include mq($from: large) {
@@ -208,9 +218,13 @@
       .v-reference__logo {
 
         @include mq($until: large) {
-          order: 2;
-          flex: 0 0 auto;
-          @include rem(padding, $gutter-size*1.5 $gutter-size 0);
+          display: block;
+          margin-right: auto;
+          margin-left: auto;
+
+          &:not(:first-child) {
+            @include rem(margin-top, $gutter-size*2);
+          }
         }
 
         @include mq($from: large) {

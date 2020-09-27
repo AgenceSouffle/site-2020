@@ -11,10 +11,14 @@
 .l-main__head
 
   .c-banner
+    - if dato.contact.background_picture
+      - body_class "has-picture-banner"
+      .c-banner__background
+        img.c-banner__picture(src=dato.contact.background_picture.url)
     .c-banner__foreground
       .l-container
         .c-banner__container
-          h1.c-banner__title= "Contact"
+          h1.c-banner__title= dato.contact.page_title
 
   .c-breadcrumb
     .l-container.l-container--large
@@ -22,7 +26,7 @@
         .c-breadcrumb__item
           = link_to "Accueil", "/", :class => "c-breadcrumb__link"
         .c-breadcrumb__item
-          .c-breadcrumb__label= "Contact"
+          .c-breadcrumb__label= dato.contact.page_title
 
 
 .l-main__body
@@ -32,8 +36,7 @@
       .v-contact__container
         .v-contact__side
           .c-heading.c-heading--left
-            .c-heading__title
-              = dato.contact.title
+            .c-heading__title= dato.contact.title
             .c-heading__description= dato.contact.description
         .v-contact__side
           .v-contact__item

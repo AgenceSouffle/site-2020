@@ -89,6 +89,7 @@
         }
 
           .c-slider__title {
+            text-align: center;
             transition: transform 0.3s ease, opacity 0.3s ease;
             transform: translate3d(0, $gutter-size*2, 0);
             opacity: 0;
