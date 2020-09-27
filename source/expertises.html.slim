@@ -14,7 +14,7 @@
     - if dato.expertises_page.background_picture
       - body_class "has-picture-banner"
       .c-banner__background
-        img.c-banner__picture(src=dato.expertises_page.background_picture.url)
+        = image_tag dato.expertises_page.background_picture.url({ w: 1920, h: 375, fit: "crop", crop: "center" }), :class => "c-banner__picture"
     .c-banner__foreground
       .l-container
         .c-banner__container
@@ -41,7 +41,7 @@
           .c-media
             .c-media__container
               .c-media__aside
-                img.c-media__picture(src=dato.expertises_page.strategy_picture.url loading="lazy")
+                = image_tag dato.expertises_page.strategy_picture.url({ w: 600 }), :class => "c-media__picture", :loading => "lazy"
               .c-media__main
                 .s-richtext
                   h2= dato.expertises_page.strategy_title
@@ -84,7 +84,7 @@
             .c-media.c-media--small(class=media_class)
               .c-media__container
                 .c-media__aside
-                  img.c-media__picture(src=service.picture.url loading="lazy")
+                  = image_tag service.picture.url({ w: 600 }), :class => "c-media__picture", :loading => "lazy"
                   - if defined?(service.video) and service.video
                     .c-media__veil.js-overlay-open(data-target="#service-#{index}")
                       .c-media__icon
@@ -104,7 +104,7 @@
             .l-grid__items
               - dato.expertises_page.references.each do |picture|
                 .l-grid__item
-                  img.l-grid__picture(src=picture.url loading="lazy")
+                  = image_tag picture.url({ w: 680 }), :class => "l-grid__picture", :loading => "lazy"
 
       .l-section__foot
         .l-container
@@ -120,7 +120,7 @@
           .c-media.c-media--small
             .c-media__container
               .c-media__aside
-                img.c-media__picture(src=dato.expertises_page.training_picture.url loading="lazy")
+                = image_tag dato.expertises_page.training_picture.url({ w: 600 }), :class => "c-media__picture", :loading => "lazy"
               .c-media__main
                 .s-richtext
                   h2= dato.expertises_page.training_title

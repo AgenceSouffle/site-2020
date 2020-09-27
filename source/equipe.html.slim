@@ -14,7 +14,7 @@
     - if dato.team_page.background_picture
       - body_class "has-picture-banner"
       .c-banner__background
-        img.c-banner__picture(src=dato.team_page.background_picture.url)
+        = image_tag dato.team_page.background_picture.url({ w: 1920, h: 375, fit: "crop", crop: "center" }), :class => "c-banner__picture"
     .c-banner__foreground
       .l-container
         .c-banner__container
